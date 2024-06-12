@@ -2,19 +2,16 @@
 
 ## Tabla de Contenidos
 - [DESCRIPCION](#descripcion)
-- [Características](#características)
-- [Tecnologías Utilizadas](#tecnologías-utilizadas)
-- [Instalación](#instalación)
-- [Uso](#uso)
+- [CARACTERISTICAS](#caracteristicas)
+- [TEGNOLOGIA UTILIZADAS](#tecnologías-utilizadas)
+- [USO](#uso)
 - [Contribución](#contribución)
-- [Autores](#autores)
-- [Licencia](#licencia)
-- 
+- [AUTORES](#autores)
 ## DESCRIPCION 
 
 ## CARACTERISTICAS
 
-## TEGNOLOGIA UTILIZADA
+## TEGNOLOGIA UTILIZADAS
 &#10146; HTML5 <br>
 &#10146; CSS <br>
 &#10146; JavaScript <br>
