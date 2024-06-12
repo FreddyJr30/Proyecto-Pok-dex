@@ -5,7 +5,6 @@
 - [CARACTERISTICAS](#caracteristicas)
 - [TEGNOLOGIA UTILIZADAS](#tecnologías-utilizadas)
 - [USO](#uso)
-- [Contribución](#contribución)
 - [AUTORES](#autores)
 ## DESCRIPCION 
 
