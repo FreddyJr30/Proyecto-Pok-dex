@@ -5,11 +5,11 @@
 ## CARACTERISTICAS
 
 ## TEGNOLOGIA UTILIZADA
-&#10146 HTML5
-&#10146 CSS
-&#10146 JavaScript
-&#10146 PokéAPI
-&#10146 LocalStorage
+&#10146; HTML5 <br>
+&#10146; CSS <br>
+&#10146; JavaScript <br>
+&#10146; PokéAPI <br>
+&#10146; LocalStorage <br>
 &#10146 GitHub
 
 ## USO
