@@ -81,12 +81,16 @@ header button {
 .sidebar .close-btn {
     position: absolute;
     top: 10px;
-    right: 25px;
-    font-size: 36px;
+    right: 20px;
+    font-size: 20px;
     background: none;
     border: none;
     color: white;
     cursor: pointer;
+}
+
+.sidebar h2{
+ text-align: center;
 }
 
 .sidebar ul {
@@ -97,7 +101,7 @@ header button {
 .sidebar ul li {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     color: #818181;
     display: block;
     transition: 0.3s;
@@ -106,6 +110,14 @@ header button {
 
 .sidebar ul li:hover {
     color: #f1f1f1;
+}
+
+.sidebar ul li.category span {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
 }
 
 /* Estilos para tipos de Pokémon */
@@ -137,3 +149,4 @@ header button {
 .pokemon-card:hover img {
     animation: movePokemon 0.5s infinite;
 }
+

@@ -30,11 +30,12 @@ class Pokedex {
 
         const img = document.createElement('img');
         img.src = pokemon.sprites.front_default;
-        card.appendChild(img);
 
-        const name = document.createElement('h2');
-        name.textContent = pokemon.name;
-        card.appendChild(name);
+        const title = document.createElement('h2');
+        title.textContent = pokemon.name;
+
+        card.appendChild(img);
+        card.appendChild(title);
 
         return card;
     }
@@ -48,5 +49,13 @@ class Pokedex {
             );
         }
         this.renderPokedex();
+    }
+
+    loadTrainers() {
+        // Código para cargar los entrenadores
+    }
+
+    renderTeam() {
+        // Código para renderizar el equipo de acompañantes
     }
 }
