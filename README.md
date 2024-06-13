@@ -3,7 +3,7 @@
 ## TABLAS DE CONTENIDOS
 - [DESCRIPCION](#descripcion)
 - [CARACTERISTICAS](#caracteristicas)
-- [TEGNOLOGIA-UTILIZADAS](#tecnologías)
+- [TEGNOLOGIA](#tecnologías)
 - [USO](#uso)
 - [AUTORES](#autores)
 ## DESCRIPCION 
@@ -17,7 +17,7 @@
 &#10146; Sección de "Mis Acompañantes" para ver y administrar los Pokémon seleccionados. <br>
 &#10146; ObjectStore para registrar y asignar Pokémon a los entrenadores del proyecto.  <br>
 ![bulbasur](https://github.com/FreddyJr30/Proyecto-Pok-dex/assets/97776616/33177932-f05d-46bd-894e-75ec86219d51)
-## TEGNOLOGIA-UTILIZADAS
+## TEGNOLOGIA
 &#10146; HTML5 <br>
 &#10146; CSS <br>
 &#10146; JavaScript <br>
