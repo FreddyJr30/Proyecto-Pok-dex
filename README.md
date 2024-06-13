@@ -29,3 +29,5 @@
 &#10146; Accede a la sección "Mis Acompañantes" para ver y administrar tus Pokémon acompañantes. <br>
 &#10146; Asigna Pokémon a los entrenadores registrados en el ObjectStore.
 ## AUTORES
+![Kelly-Alexandra-Garcia-Berrios-12-6-2024](https://github.com/FreddyJr30/Proyecto-Pok-dex/assets/97776616/fd892975-c0e2-4b76-8420-e43685440048)
+
