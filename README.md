@@ -3,7 +3,7 @@
 ## TABLAS DE CONTENIDOS
 - [DESCRIPCION](#descripcion)
 - [CARACTERISTICAS](#caracteristicas)
-- [TEGNOLOGIA](#tecnologías)
+- [TEGNOLOGIA](#tegnologia)
 - [USO](#uso)
 - [AUTORES](#autores)
 ## DESCRIPCION 
