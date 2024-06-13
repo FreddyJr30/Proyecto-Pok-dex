@@ -29,7 +29,8 @@
 &#10146; Navega a través de los Pokémon. <br>
 &#10146; Selecciona Pokémon como acompañantes. <br>
 &#10146; Accede a la sección "Mis Acompañantes" para ver y administrar tus Pokémon acompañantes. <br>
-&#10146; Asigna Pokémon a los entrenadores registrados en el ObjectStore.
+&#10146; Asigna Pokémon a los entrenadores registrados en el ObjectStore. <br>
+![charmander](https://github.com/FreddyJr30/Proyecto-Pok-dex/assets/97776616/81489b0f-2884-4dca-898c-1d1b18b72dea)
 ## AUTORES
 ![Kelly-Alexandra-Garcia-Berrios-12-6-2024](https://github.com/FreddyJr30/Proyecto-Pok-dex/assets/97776616/fd892975-c0e2-4b76-8420-e43685440048)
 ![mewtwo](https://github.com/FreddyJr30/Proyecto-Pok-dex/assets/97776616/4c940cf1-7e9b-458a-8ab6-440504eb4f6d)
