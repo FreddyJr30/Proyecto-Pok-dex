@@ -7,6 +7,12 @@
 - [USO](#uso)
 - [AUTORES](#autores)
 ## DESCRIPCION 
+La Pokédex es una herramienta diseñada para mostrar información detallada de los primeros 150 Pokémon utilizando la PokéAPI. Este proyecto está desarrollado siguiendo las pautas de Programación Orientada a Objetos (POO) y haciendo uso de tecnologías web modernas. Su objetivo es proporcionar a los usuarios una experiencia interactiva y educativa al explorar la información de estos Pokémon clásicos.
+
+Cada tarjeta de Pokémon incluye datos importantes como su especie, altura, peso, tipo, habilidades, debilidades, estadísticas y movimientos. Además, el diseño de la Pokédex es dinámico , incorporando transiciones y animaciones que hacen la experiencia de usuario más atractiva.
+
+Una característica destacada de esta Pokédex es la capacidad de seleccionar hasta 6 Pokémon como acompañantes, los cuales se guardarán de manera persistente utilizando LocalStorage. También incluye una sección de "Mis Acompañantes" donde los usuarios pueden ver y administrar sus Pokémon seleccionados. Además, se implementa un CRUD para la gestión de estos Pokémon acompañantes y un ObjectStore para registrar y asignar Pokémon a los entrenadores del proyecto.
+
 ![squirtle](https://github.com/FreddyJr30/Proyecto-Pok-dex/assets/97776616/8454baeb-c400-474e-9de2-d334d4fa9bf4)
 ## CARACTERISTICAS
 &#10146; Información detallada de los primeros 150 Pokémon. <br>
