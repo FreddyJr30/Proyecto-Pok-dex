@@ -1,0 +1,184 @@
+/* Estilos globales para resetear márgenes y rellenos y usar el modelo de caja border-box */
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos para el cuerpo del documento */
+body {
+    background-color: darkcyan; /* Color de fondo del cuerpo */
+    height: 100vh; /* Alto completo del viewport */
+    display: flex; /* Flexbox para centrar elementos vertical y horizontalmente */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: center; /* Centra horizontalmente los elementos */
+    flex-direction: column; /* Coloca los elementos en columna */
+    overflow: hidden; /* Oculta las barras de desplazamiento */
+}
+
+/* Estilos para la pantalla de carga */
+#loadingScreen {
+    position: fixed; /* Fijar la posición */
+    top: 0; /* Ajuste en la parte superior */
+    left: 0; /* Ajuste en la parte izquierda */
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    background-color: #fff; /* Color de fondo blanco */
+    display: flex; /* Flexbox para centrar elementos vertical y horizontalmente */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: center; /* Centra horizontalmente los elementos */
+    z-index: 1000; /* Capa z-index para asegurar que cubra todo lo demás */
+}
+
+/* Estilos para la imagen GIF de carga */
+#loadingGif {
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    object-fit: cover; /* Asegura que la imagen GIF cubra toda la pantalla */
+}
+
+/* Estilos para el contenedor base */
+.base {
+    height: 150px; /* Altura del contenedor */
+    width: 150px; /* Ancho del contenedor */
+    display: flex; /* Flexbox para centrar elementos vertical y horizontalmente */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: center; /* Centra horizontalmente los elementos */
+    transform: scale(1.5); /* Escala el contenedor */
+    position: relative; /* Posición relativa para elementos hijos absolutamente posicionados */
+    display: none; /* Oculta inicialmente el contenedor */
+}
+
+/* Estilos para la línea de carga (bat) */
+.bat {
+    height: 0.2em; /* Altura de la línea */
+    width: 3em; /* Ancho de la línea */
+    background-color: brown; /* Color de fondo de la línea */
+    position: absolute; /* Posición absoluta para colocarla correctamente */
+    top: 73%; /* Ajusta la línea de carga más abajo */
+    transform-origin: 25px -100px; /* Define el origen de la transformación */
+    animation: bat 3s linear infinite; /* Animación de la línea de carga */
+}
+
+/* Estilos para la Pokébola */
+.pokeball {
+    height: 2em; /* Altura de la Pokébola */
+    width: 2em; /* Ancho de la Pokébola */
+    background: #fff; /* Color de fondo de la Pokébola */
+    border-radius: 50%; /* Borde redondeado */
+    position: absolute; /* Posición absoluta para colocarla correctamente */
+    top: 21%; /* Ajusta la Pokébola más arriba */
+    left: 40%; /* Ajusta la Pokébola más a la izquierda */
+    transform: translate(-50%, -50%); /* Ajusta la posición */
+    overflow: hidden; /* Oculta el contenido que se sale del límite */
+    border: 0.3em solid #000; /* Borde de la Pokébola */
+    animation: ball 3s linear infinite; /* Animación de la Pokébola */
+}
+
+/* Pseudo-elementos antes y después de la Pokébola */
+.pokeball:before,
+.pokeball:after {
+    content: ""; /* Contenido vacío */
+    position: absolute; /* Posición absoluta */
+}
+
+/* Estilos para el círculo rojo de la Pokébola */
+.pokeball:before {
+    background: red; /* Color de fondo rojo */
+    width: 100%; /* Ancho completo */
+    height: 50%; /* Altura del 50% */
+    top: 0; /* Ajuste en la parte superior */
+    left: 0; /* Ajuste en la parte izquierda */
+}
+
+/* Estilos para el círculo negro de la Pokébola */
+.pokeball:after {
+    background: #000; /* Color de fondo negro */
+    width: 60%; /* Ancho del 60% */
+    height: 60%; /* Altura del 60% */
+    border-radius: 50%; /* Borde redondeado */
+    top: 20%; /* Ajuste en la parte superior */
+    left: 20%; /* Ajuste en la parte izquierda */
+    box-shadow: inset 0 0 0 0.2em #7f8c8d; /* Sombra interior */
+}
+
+/* Estilos para el texto de carga */
+.bat span {
+    font-size: 0.7em; /* Tamaño de fuente */
+    position: absolute; /* Posición absoluta */
+    top: 1px; /* Ajuste en la parte superior */
+}
+
+/* Animación de la Pokébola */
+@keyframes ball {
+    0% {
+        transform: translate(0px);
+    }
+    5% {
+        transform: translateX(5px) translateY(5px);
+    }
+    25% {
+        transform: translateX(20px) translateY(45px);
+    }
+    45% {
+        transform: translateX(5px) translateY(5px);
+    }
+    50% {
+        transform: translate(0px);
+    }
+    55% {
+        transform: translateX(-5px) translateY(5px);
+    }
+    75% {
+        transform: translateX(-20px) translateY(45px);
+    }
+    95% {
+        transform: translateX(-5px) translateY(5px);
+    }
+    100% {
+        transform: translate(0px);
+    }
+}
+
+/* Animación de la línea de carga (bat) */
+@keyframes bat {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-15deg);
+    }
+    75% {
+        transform: rotate(15deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Animación de cambio de color para el texto de carga */
+.loading {
+    font-size: 0.7em; /* Tamaño de fuente */
+    position: absolute; /* Posición absoluta */
+    top: 1px; /* Ajuste en la parte superior */
+    animation: changeColor 3s linear infinite; /* Animación de cambio de color */
+}
+
+/* Animación de cambio de color */
+@keyframes changeColor {
+    0% {
+        color: red; /* Color rojo */
+    }
+    25% {
+        color: yellow; /* Color amarillo */
+    }
+    50% {
+        color: green; /* Color verde */
+    }
+    75% {
+        color: blue; /* Color azul */
+    }
+    100% {
+        color: red; /* Vuelve al color rojo */
+    }
+}
