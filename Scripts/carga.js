@@ -32,7 +32,7 @@ class LoadingScreenManager {
             // Mostrar el loading de la clase base durante baseLoadingTime milisegundos (20 segundos)
             setTimeout(() => {
                 // Redirigir al index.html después de baseLoadingTime milisegundos (20 segundos)
-                window.location.href = 'princinpal.html'; // Ajusta la ruta si es necesario
+                window.location.href = 'principal.html'; // Ajusta la ruta si es necesario
             }, this.baseLoadingTime);
         }, this.loadingScreenTime);
     }

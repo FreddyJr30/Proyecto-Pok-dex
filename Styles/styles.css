@@ -10,16 +10,28 @@ header {
     padding: 20px;
     text-align: center;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-header button {
-    background: none;
-    border: none;
-    font-size: 1.5em;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.navbar a, .navbar select, .navbar button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    background-color: #f0f0f0;;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.navbar a:hover, .navbar button:hover {
+    background-color: #ddd;
 }
 
 .pokedex, .accompanying-pokemons {

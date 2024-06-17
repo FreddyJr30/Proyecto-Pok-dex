@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <link rel="stylesheet" href="Styles/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>P o k é d e x</h1>
+        <nav class="navbar">
+            <a href="principal.html">Inicio</a>
+            <select id="type-filter">
+                <option value="">Filtrar Pokemones</option>
+                <option value="normal">Normal</option>
+                <option value="fire">Fuego</option>
+                <option value="water">Agua</option>
+                <option value="electric">Eléctrico</option>
+                <option value="grass">Planta</option>
+                <option value="ice">Hielo</option>
+                <option value="fighting">Lucha</option>
+                <option value="poison">Veneno</option>
+                <option value="ground">Tierra</option>
+                <option value="flying">Volador</option>
+                <option value="psychic">Psíquico</option>
+                <option value="bug">Bicho</option>
+                <option value="rock">Roca</option>
+                <option value="ghost">Fantasma</option>
+                <option value="dragon">Dragón</option>
+                <option value="dark">Siniestro</option>
+                <option value="steel">Acero</option>
+                <option value="fairy">Hada</option>
+            </select>
+            <a href="#accompanying-pokemons">Mi Equipo</a>
+        </nav>
+    </header>
+    <main>
+        <!-- Sección donde se mostrará el listado de Pokémon -->
+        <section id="pokedex" class="pokedex"></section>
+
+        <!-- Sección para mostrar el equipo de Pokémon del entrenador -->
+        <section id="accompanying-pokemons" class="accompanying-pokemons">
+            <h2>Mis Acompañantes</h2>
+            <div id="team"></div>
+        </section>
+
+        <!-- Sección para mostrar los equipos de los entrenadores -->
+        <section id="trainer-teams" class="trainer-teams"></section>
+    </main>
+
+    <!-- Formulario para agregar un nuevo entrenador -->
+    <form id="add-trainer-form">
+        <h3>Crear un entrenador</h3>
+        <input type="text" name="trainer-name" placeholder="Nombre del Entrenador" required>
+        <button type="submit">Agregar Entrenador</button>
+    </form>
+
+    <!-- Formulario para asignar un Pokémon a un entrenador -->
+    <form id="assign-pokemon-form">
+        <h3>Asignar pokemon a entrenador</h3>
+        <select id="trainer-select" name="trainer-select" required>
+            <!-- Opciones de entrenadores se cargarán dinámicamente -->
+        </select>
+        <select id="pokemon-select" name="pokemon-select" required>
+            <!-- Opciones de Pokémon se cargarán dinámicamente -->
+        </select>
+        <button type="submit">Asignar Pokémon</button>
+    </form>
+    <!-- Importar la biblioteca Axios para hacer peticiones HTTP -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- Importar tus archivos JavaScript -->
+    <script src="Scripts/pokemon.js" type="module"></script>
+    <script src="Scripts/trainer.js" type="module"></script>
+    <script src="Scripts/pokedex.js" type="module"></script>
+    <script src="Scripts/main.js" type="module"></script>
+</body>
+
+</html>
