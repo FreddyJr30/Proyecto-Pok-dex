@@ -1,0 +1,360 @@
+/* Estilos globales para el cuerpo del documento */
+body {
+  font-family: Arial, sans-serif; /* Fuente y tipo de letra */
+  background: radial-gradient(circle, #3498db, #9b59b6, #1abc9c, #2ecc71, #f39c12); /* Fondo degradado radial */
+  background-color: #f0f0f0; /* Color de fondo de respaldo */
+  margin: 0; /* Elimina los márgenes predeterminados del cuerpo */
+  padding: 0; /* Elimina el relleno predeterminado del cuerpo */
+}
+
+/* Estilos para el encabezado */
+header {
+  background-color: #ffcb05; /* Color de fondo del encabezado */
+  padding: 20px; /* Espaciado interno */
+  text-align: center; /* Alineación del texto al centro */
+  position: relative; /* Posición relativa para el posicionamiento del botón */
+}
+
+/* Estilos para el botón en el encabezado */
+header button {
+  background: none; /* Fondo transparente */
+  border: none; /* Sin borde */
+  font-size: 1.5em; /* Tamaño de fuente */
+  cursor: pointer; /* Cursor apuntador */
+  position: absolute; /* Posición absoluta */
+  top: 20px; /* Distancia desde la parte superior */
+  right: 20px; /* Distancia desde la derecha */
+}
+
+/* Estilos para contenedores de tarjetas de Pokémon */
+.pokedex,
+.accompanying-pokemons {
+  display: flex; /* Display flex para alinear elementos en fila */
+  flex-wrap: wrap; /* Envolver elementos en múltiples líneas si es necesario */
+  justify-content: center; /* Centrar contenido horizontalmente */
+  margin: 20px; /* Margen exterior */
+}
+
+/* Estilos para cada tarjeta de Pokémon */
+.pokemon-card {
+  position: relative; /* Posición relativa para contener elementos absolutos */
+  width: 200px; /* Ancho de la tarjeta */
+  padding: 10px; /* Relleno interno */
+  margin: 10px; /* Margen externo */
+  border-radius: 10px; /* Borde redondeado */
+  text-align: center; /* Alineación del texto al centro */
+  transition: transform 0.3s; /* Transición suave en transformación */
+  background-color: #4d4dff; /* Color de fondo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra */
+  overflow: hidden; /* Oculta el desbordamiento de contenido */
+}
+
+/* Estilos para la imagen dentro de la tarjeta de Pokémon */
+.pokemon-card img {
+  width: 100px; /* Ancho de la imagen */
+  height: 100px; /* Altura de la imagen */
+  transition: transform 0.3s; /* Transición suave en transformación */
+}
+
+/* Estilos para el título dentro de la tarjeta de Pokémon */
+.pokemon-card h2 {
+  font-size: 1.5em; /* Tamaño de fuente */
+  margin: 10px 0; /* Margen superior e inferior */
+}
+
+/* Estilos para los botones dentro de la tarjeta de Pokémon */
+.pokemon-card button {
+  background-color: #007bff; /* Color de fondo */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Borde redondeado */
+  color: white; /* Color de texto */
+  cursor: pointer; /* Cursor apuntador */
+  padding: 10px 20px; /* Relleno interno */
+}
+
+/* Estilos para el botón al pasar el mouse */
+.pokemon-card button:hover {
+  background-color: #0056b3; /* Color de fondo al pasar el mouse */
+}
+
+/* Estilos para la barra lateral */
+.sidebar {
+  height: 100%; /* Altura completa del área visible */
+  width: 0; /* Ancho inicial (cerrado) */
+  position: fixed; /* Posición fija */
+  z-index: 1; /* Índice z para superposición */
+  top: 0; /* Desde la parte superior */
+  left: 0; /* Desde la izquierda */
+  background-color: #111; /* Color de fondo */
+  overflow-x: hidden; /* Ocultar el desbordamiento horizontal */
+  transition: 0.5s; /* Transición suave */
+  padding-top: 60px; /* Espaciado superior */
+  color: white; /* Color de texto */
+}
+
+/* Estilos para el botón de cierre en la barra lateral */
+.sidebar .close-btn {
+  position: absolute; /* Posición absoluta */
+  top: 10px; /* Distancia desde la parte superior */
+  right: 20px; /* Distancia desde la derecha */
+  font-size: 20px; /* Tamaño de fuente */
+  background: none; /* Fondo transparente */
+  border: none; /* Sin borde */
+  color: white; /* Color de texto */
+  cursor: pointer; /* Cursor apuntador */
+}
+
+/* Estilos para el título dentro de la barra lateral */
+.sidebar h2 {
+  text-align: center; /* Alineación del texto al centro */
+}
+
+/* Estilos para la lista desordenada dentro de la barra lateral */
+.sidebar ul {
+  list-style-type: none; /* Elimina los puntos de la lista */
+  padding: 0; /* Sin relleno */
+}
+
+/* Estilos para cada elemento de la lista en la barra lateral */
+.sidebar ul li {
+  padding: 8px 8px 8px 32px; /* Relleno interno */
+  text-decoration: none; /* Sin subrayado de enlace */
+  font-size: 20px; /* Tamaño de fuente */
+  color: #818181; /* Color de texto predeterminado */
+  display: block; /* Mostrar como bloque */
+  transition: 0.3s; /* Transición suave */
+  cursor: pointer; /* Cursor apuntador */
+}
+
+/* Estilos al pasar el mouse sobre cada elemento de la lista en la barra lateral */
+.sidebar ul li:hover {
+  color: #f1f1f1; /* Color de texto al pasar el mouse */
+}
+
+/* Estilos específicos para elementos de categoría en la barra lateral */
+.sidebar ul li.category span {
+  cursor: pointer; /* Cursor apuntador */
+}
+
+/* Clase para ocultar elementos */
+.hidden {
+  display: none; /* Oculta el elemento */
+}
+
+/* Estilos específicos para cada tipo de Pokémon */
+.pokemon-type-normal {
+  background: radial-gradient(circle, #A8A878, #9C9C68, #8F8F58, #84844E, #797944, #6E6E3D, #646436, #59592F); /* Fondo degradado radial */
+  box-shadow: 0 0 10px rgba(168, 168, 120, 0.5); /* Sombra con color radiante */
+}
+
+/* Repetir patrones para cada tipo de Pokémon con variaciones de colores y sombras */
+
+/* Animación de movimiento para la imagen al pasar el mouse */
+@keyframes movePokemon {
+  0%, 100% {
+    transform: translateY(0); /* Transformación inicial y final */
+  }
+  50% {
+    transform: translateY(-10px); /* Transformación intermedia */
+  }
+}
+
+/* Animación aplicada a la imagen dentro de la tarjeta de Pokémon al pasar el mouse */
+.pokemon-card:hover img {
+  animation: movePokemon 0.5s infinite; /* Aplicar la animación */
+}
+
+/* Estilos para elementos antes y después de la tarjeta de Pokémon */
+.pokemon-card::before,
+.pokemon-card::after {
+  content: ''; /* Contenido generado */
+  position: absolute; /* Posición absoluta */
+  width: 10px; /* Ancho */
+  height: 10px; /* Altura */
+  background-color: rgba(255, 255, 255, 0.8); /* Color de fondo semi-transparente */
+  border-radius: 50%; /* Borde redondeado */
+  opacity: 0; /* Opacidad inicial */
+  pointer-events: none; /* No afecta los eventos de puntero */
+  animation: sparkle 1.5s infinite; /* Aplicar la animación */
+}
+
+/* Estilos para el elemento antes de la tarjeta de Pokémon */
+.pokemon-card::before {
+  top: -20px; /* Posición desde la parte superior */
+  left: calc(50% - 20px); /* Posición desde el centro */
+  animation-delay: 0s; /* Retraso inicial de la animación */
+}
+
+/* Estilos para el elemento después de la tarjeta de Pokémon */
+.pokemon-card::after {
+  top: -20px; /* Posición desde la parte superior */
+  left: calc(50% + 20px); /* Posición desde el centro */
+  animation-delay: 0.5s; /* Retraso de la animación */
+}
+
+/* Estilos para tipos de Pokémon */
+
+.pokemon-type-normal {
+  background: radial-gradient(circle, #A8A878, #9C9C68, #8F8F58, #84844E, #797944, #6E6E3D, #646436, #59592F);
+  box-shadow: 0 0 10px rgba(168, 168, 120, 0.5); /* Sombra con color radiante */
+}
+
+.pokemon-type-fire {
+  background: radial-gradient(circle, #F08030, #E8703C, #DC6C42, #D06447, #C45A4B, #B9504F, #AE464F, #A33C4F);
+  box-shadow: 0 0 10px rgba(240, 128, 48, 0.5);
+}
+
+.pokemon-type-water {
+  background: radial-gradient(circle, #6890F0, #539BF5, #3D9DF5, #2B97F3, #1F8CEC, #1482E3, #0C78D9, #006ED0);
+  box-shadow: 0 0 10px rgba(104, 144, 240, 0.5);
+}
+
+.pokemon-type-electric {
+  background: radial-gradient(circle, #F8D030, #F0C24B, #E8B54F, #E0A951, #D79A51, #CF8B51, #C67C51, #BD6D51);
+  box-shadow: 0 0 10px rgba(248, 208, 48, 0.5);
+}
+
+.pokemon-type-grass {
+  background: radial-gradient(circle, #78C850, #5CAC5F, #4F9E5B, #469258, #3B8451, #327649, #296941, #205B3A);
+  box-shadow: 0 0 10px rgba(120, 200, 80, 0.5);
+}
+
+.pokemon-type-ice {
+  background: radial-gradient(circle, #98D8D8, #7FC6C4, #6CBDB6, #5EB2AB, #54A69F, #4B9A93, #428E88, #39827C);
+  box-shadow: 0 0 10px rgba(152, 216, 216, 0.5);
+}
+
+.pokemon-type-fighting {
+  background: radial-gradient(circle, #C03028, #B52D2A, #AA2929, #A02628, #991F26, #901B23, #87171F, #7E121B);
+  box-shadow: 0 0 10px rgba(192, 48, 40, 0.5);
+}
+
+.pokemon-type-poison {
+  background: radial-gradient(circle, #A040A0, #92418E, #843B89, #7A3786, #6F3281, #652D7B, #5B2875, #51236F);
+  box-shadow: 0 0 10px rgba(160, 64, 160, 0.5);
+}
+
+.pokemon-type-ground {
+  background: radial-gradient(circle, #E0C068, #CDAF6C, #BDA469, #B09766, #A48563, #97725F, #8B5F5A, #7F4C56);
+  box-shadow: 0 0 10px rgba(224, 192, 104, 0.5);
+}
+
+.pokemon-type-flying {
+  background: radial-gradient(circle, #A890F0, #8E7BEA, #7A70E6, #6A67E3, #5D5EE0, #5255DC, #474CD8, #3C43D4);
+  box-shadow: 0 0 10px rgba(168, 144, 240, 0.5);
+}
+
+.pokemon-type-psychic {
+  background: radial-gradient(circle, #F85888, #E74B7C, #DA4477, #CF3E72, #C4376D, #B93267, #AE2C61, #A3275B);
+  box-shadow: 0 0 10px rgba(248, 88, 136, 0.5);
+}
+
+.pokemon-type-bug {
+  background: radial-gradient(circle, #A8B820, #9EAD29, #92A82A, #89A32A, #7F9E29, #759829, #6B9328, #618E28);
+  box-shadow: 0 0 10px rgba(168, 184, 32, 0.5);
+}
+
+.pokemon-type-rock {
+  background: radial-gradient(circle, #B8A038, #A8942C, #998326, #8F7B20, #85721B, #7B6815, #715F10, #67550A);
+  box-shadow: 0 0 10px rgba(184, 160, 56, 0.5);
+}
+
+.pokemon-type-ghost {
+  background: radial-gradient(circle, #705898, #614F84, #544C7A, #4A4872, #41446A, #373E62, #2E395A, #243453);
+  box-shadow: 0 0 10px rgba(112, 88, 152, 0.5);
+}
+
+.pokemon-type-dragon {
+  background: radial-gradient(circle, #7038F8, #5C32E7, #4B2DE3, #4028DE, #361FDA, #2D19D4, #2414CE, #1B0FC7);
+  box-shadow: 0 0 10px rgba(112, 56, 248, 0.5);
+}
+
+.pokemon-type-dark {
+  background: radial-gradient(circle, #705848, #614A3C, #534533, #493E2D, #3F3928, #352F23, #2C261D, #221C18);
+  box-shadow: 0 0 10px rgba(112, 88, 72, 0.5);
+}
+
+.pokemon-type-steel {
+  background: radial-gradient(circle, #B8B8D0, #A5A5B6, #95949F, #898A8A, #7E8080, #747676, #6A6C6C, #606262);
+  box-shadow: 0 0 10px rgba(184, 184, 208, 0.5);
+}
+
+.pokemon-type-fairy {
+  background: radial-gradient(circle, #EE99AC, #E1849B, #D7748B, #CC6680, #BF5A76, #B34F6C, #A74462, #9A3958);
+  box-shadow: 0 0 10px rgba(238, 153, 172, 0.5);
+}
+
+
+/* Animación de movimiento */
+
+@keyframes movePokemon {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+/* Animación de las pelotitas brillantes */
+@keyframes sparkle {
+  0% {
+    transform: translateY(-50px) scale(0.5); /* Transformación inicial */
+    opacity: 0.8; /* Opacidad inicial */
+  }
+  100% {
+    transform: translateY(300px) scale(1); /* Transformación final */
+    opacity: 0; /* Opacidad final */
+  }
+}
+
+/* Estilos al pasar el mouse sobre la tarjeta de Pokémon */
+.pokemon-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.3); /* Sombra al pasar el mouse */
+  transform: scale(1.05); /* Aumentar tamaño al pasar el mouse */
+}
+
+/* Estilos adicionales para la tarjeta de Pokémon */
+.pokemon-card {
+  cursor: pointer; /* Cursor apuntador */
+  max-width: 300px; /* Ancho máximo */
+  margin: 10px auto; /* Margen y centrado automático */
+}
+
+/* Estilos para los detalles de Pokémon */
+.pokemon-details {
+  text-align: left; /* Alineación del texto a la izquierda */
+  padding: 10px; /* Relleno interno */
+}
+
+/* Estilos para la lista dentro de los detalles de Pokémon */
+.pokemon-details ul {
+  list-style-type: none; /* Elimina los puntos de la lista */
+  padding: 0; /* Sin relleno */
+}
+
+/* Estilos para cada elemento de la lista dentro de los detalles de Pokémon */
+.pokemon-details li {
+  margin-bottom: 5px; /* Margen inferior */
+}
+
+/* Estilos para el contenedor de la pokébola */
+.pokemon-card .pokeball {
+  position: absolute; /* Posición absoluta */
+  top: -30%; /* Distancia desde arriba */
+  left: 0; /* Desde la izquierda */
+  width: 100%; /* Ancho completo */
+  height: 227%; /* Altura extendida */
+  background-image: url('https://e1.pxfuel.com/desktop-wallpaper/945/539/desktop-wallpaper-pokeball-by-motozappa-pokeball-android.jpg'); /* Imagen de la pokébola */
+  background-size: contain; /* Tamaño de imagen */
+  background-repeat: no-repeat; /* Sin repetición de imagen */
+  background-position: center; /* Posición central de la imagen */
+  opacity: 1; /* Opacidad inicial */
+  transition: opacity 0.3s ease; /* Transición de opacidad */
+}
+
+/* Estilos al pasar el mouse sobre la tarjeta de Pokémon */
+.pokemon-card:hover .pokeball {
+  opacity: 0; /* Opacidad cero al pasar el mouse */
+}
