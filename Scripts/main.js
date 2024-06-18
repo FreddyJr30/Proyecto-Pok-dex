@@ -2,18 +2,14 @@ import { Pokedex } from "./pokedex.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     const pokedex = new Pokedex();
+
+    // Cargar los Pokémon y entrenadores al iniciar
     pokedex.fetchPokemons();
     pokedex.loadTrainers();
     pokedex.renderTeam();
     pokedex.renderTrainerTeams();
 
-    const typeFilter = document.getElementById('type-filter');
-    if (typeFilter) {
-        typeFilter.addEventListener('change', () => {
-            pokedex.renderPokedex();
-        });
-    }
-
+    // Manejar el formulario para agregar entrenadores
     const addTrainerForm = document.getElementById('add-trainer-form');
     if (addTrainerForm) {
         addTrainerForm.addEventListener('submit', (event) => {
@@ -25,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Manejar el formulario para asignar Pokémon a entrenadores
     const assignPokemonForm = document.getElementById('assign-pokemon-form');
     if (assignPokemonForm) {
         assignPokemonForm.addEventListener('submit', (event) => {
@@ -40,6 +37,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Función para agregar efecto 3D al pasar el mouse por encima de las tarjetas de Pokémon
+    const add3DEffect = () => {
+        const cards = document.querySelectorAll('.pokemon-card');
+        cards.forEach(card => {
+            card.addEventListener('mousemove', ev => {
+                const { offsetX, offsetY, target: el } = ev;
+                const { offsetWidth, offsetHeight } = el;
+                const rotX = (offsetHeight / 2 - offsetY) / 25;
+                const rotY = (offsetWidth / 2 - offsetX) / -25;
+                el.style.transform = `translate3d(0, 0, 0) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+            });
+            card.addEventListener('mouseout', ev => {
+                ev.target.style.transform = `translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg)`;
+            });
+        });
+    };
+
+    // Reaplicar el efecto 3D cuando se renderice la Pokédex
+    const originalRenderPokedex = pokedex.renderPokedex.bind(pokedex);
+    pokedex.renderPokedex = function () {
+        originalRenderPokedex();
+        add3DEffect();
+    };
+
+    // Función para renderizar las opciones de selección de entrenador
     function renderTrainerSelect() {
         const trainerSelect = document.getElementById('trainer-select');
         trainerSelect.innerHTML = '<option value="">Selecciona un entrenador</option>';
@@ -48,5 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Llamar la función de renderizado de las opciones de selección de entrenador al inicio
     renderTrainerSelect();
 });
