@@ -193,6 +193,15 @@ export class Pokedex {
         }
     }
 
+    deleteTrainerPokemon(trainerName, pokemonId) {
+        const trainer = this.trainers.find(t => t.name === trainerName);
+        if (trainer) {
+            trainer.removePokemon(pokemonId);
+            this.saveTrainers();
+            this.renderTrainerTeams();
+        }
+    }
+
     renderTrainerTeams() {
         const trainerTeamsContainer = document.getElementById('trainer-teams');
         trainerTeamsContainer.innerHTML = '';

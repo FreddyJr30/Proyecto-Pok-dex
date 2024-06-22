@@ -111,4 +111,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Llamar la función de renderizado de las opciones de selección de entrenador al inicio
     renderTrainerSelect();
+    renderTrainerSelectRemove();
 });
