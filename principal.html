@@ -49,6 +49,21 @@
         </select>
         <button type="submit">Asignar Pokémon</button>
     </form>
+
+
+    <!-- Formulario para eliminar un Pokémon de un entrenador -->
+<form id="remove-pokemon-form">
+    <h3>Eliminar Pokémon de entrenador</h3>
+    <select id="trainer-select-remove" name="trainer-select-remove" required>
+        <!-- Opciones de entrenadores se cargarán dinámicamente -->
+    </select>
+    <select id="pokemon-select-remove" name="pokemon-select-remove" required>
+        <!-- Opciones de Pokémon se cargarán dinámicamente -->
+    </select>
+    <button type="submit">Eliminar Pokémon</button>
+</form>
+
+
     <!-- Importar la biblioteca Axios para hacer peticiones HTTP -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
