@@ -37,6 +37,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Manejar el formulario para eliminar un Pokémon de un entrenador
+    const removePokemonForm = document.getElementById('remove-pokemon-form');
+    if (removePokemonForm) {
+        removePokemonForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const trainerName = event.target.elements['trainer-select-remove'].value;
+            const selectedPokemon = event.target.elements['pokemon-select-remove'].value;
+            const pokemonId = parseInt(selectedPokemon.split('-')[0], 10); 
+
+            pokedex.deleteTrainerPokemon(trainerName, pokemonId);
+            event.target.reset();
+
+            renderTrainerSelectRemove();
+        });
+    }
+
     // Función para agregar efecto 3D al pasar el mouse por encima de las tarjetas de Pokémon
     const add3DEffect = () => {
         const cards = document.querySelectorAll('.pokemon-card');
@@ -69,6 +85,29 @@ document.addEventListener('DOMContentLoaded', () => {
             trainerSelect.innerHTML += `<option value="${trainer.name}">${trainer.name}</option>`;
         });
     }
+
+    // Función para renderizar las opciones de selección de entrenador y Pokémon para eliminar
+    function renderTrainerSelectRemove() {
+        const trainerSelectRemove = document.getElementById('trainer-select-remove');
+        trainerSelectRemove.innerHTML = '<option value="">Selecciona un entrenador</option>';
+        pokedex.trainers.forEach(trainer => {
+            trainerSelectRemove.innerHTML += `<option value="${trainer.name}">${trainer.name}</option>`;
+        });
+
+        trainerSelectRemove.addEventListener('change', () => {
+            const selectedTrainer = trainerSelectRemove.value;
+            const pokemonSelectRemove = document.getElementById('pokemon-select-remove');
+            pokemonSelectRemove.innerHTML = '<option value="">Selecciona un Pokémon</option>';
+
+            if (selectedTrainer) {
+                const trainer = pokedex.trainers.find(t => t.name === selectedTrainer);
+                trainer.team.forEach(pokemon => {
+                    pokemonSelectRemove.innerHTML += `<option value="${pokemon.id}-${pokemon.name}">${pokemon.name}</option>`;
+                });
+            }
+        });
+    }
+
 
     // Llamar la función de renderizado de las opciones de selección de entrenador al inicio
     renderTrainerSelect();
