@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjetas de Pokémon</title>
+    <link rel="stylesheet" href="/Styles/styles.css">
+</head>
+<body>
+    <header>
+        <div class="titulo">
+            <img src="/images/Pokedex-17-6-2024.gif" alt="Pokedex" class="gif-titulo">
+        </div>
+        <nav class="barra-nav-principal" id="barra-navegacion">
+            <ul>
+                <li><a href="#" data-seccion="pokedex">Pokédex</a></li>
+                <li><a href="#" data-seccion="acompanantes">Mis Acompañantes</a></li>
+                <li><a href="#" data-seccion="entrenadores">Entrenadores</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="contenedor-pokemon" class="contenedor">
+        <!-- Tarjetas de Pokémon se añadirán aquí -->
+    </section>
+    <section id="seccion-acompanantes">
+        <!-- Contenido para la sección Mis Acompañantes -->
+    </section>
+    <section id="seccion-entrenadores">
+        <!-- Contenido para la sección Entrenadores -->
+    </section>
+    <div id="detalles-pokemon" class="detalles-pokemon">
+        <div class="contenido-detalles" id="contenido-detalles">
+            <span class="cerrar-btn" id="cerrar-btn">&times;</span>
+            <div id="cuerpo-detalles"></div>
+        </div>
+    </div>
+    <script src="/Scripts/pokedex-data.js"></script>
+    <script src="/Scripts/animaciones.js"></script>
+</body>
+</html>
