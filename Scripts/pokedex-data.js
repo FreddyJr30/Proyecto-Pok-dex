@@ -125,6 +125,26 @@ function mostrarDetallesPokemon(pokemonData) {
         mostrarPokemones(pokemonesFiltrados);
     }
 
-    // Cargar tarjetas de Pokémon al inicio
-    crearTarjetasPokemon();
+    // Función para manejar la búsqueda por tipo desde el buscador
+    function buscarPorTipo() {
+        const tipo = buscadorTipo.value;
+        if (tipo) {
+            filtrarPorTipo(tipo);
+        } else {
+            mostrarPokemones(pokemones);
+        }
+    }
+
+    // Función para mostrar todos los Pokémon
+    mostrarTodosBtn.addEventListener('click', () => {
+        mostrarPokemones(pokemones);
+    });
+
+    // Añadir eventos de búsqueda
+    buscadorNombre.addEventListener('input', buscarPorNombre);
+    buscadorTipo.addEventListener('change', buscarPorTipo);
+
+    // Inicializar la Pokédex al cargar la página
+    window.addEventListener('DOMContentLoaded', crearTarjetasPokemon);
+
 });
