@@ -3,6 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const detallesPokemon = document.getElementById('detalles-pokemon');
     const cuerpoDetalles = document.getElementById('cuerpo-detalles');
     const cerrarBtn = document.getElementById('cerrar-btn');
+    const buscadorNombre = document.getElementById('buscador-nombre');
+    const buscadorTipo = document.getElementById('buscador-tipo');
+    const mostrarTodosBtn = document.getElementById('mostrar-todos');
+
+    let pokemones = []; // Lista para almacenar todos los Pokémon
 
     // Función para obtener datos de los Pokémon desde la API
     async function obtenerPokemones(offset = 0, limit = 150) {
@@ -66,14 +71,17 @@ function mostrarDetallesPokemon(pokemonData) {
 
     // Función para crear tarjetas de Pokémon
     async function crearTarjetasPokemon() {
-        const pokemones = await obtenerPokemones();
-        pokemones.forEach(async (pokemon) => {
+        const pokemonesData = await obtenerPokemones();
+        pokemones = []; // Reset the pokemones array
+
+        pokemonesData.forEach(async (pokemon) => {
             try {
                 const response = await fetch(pokemon.url);
                 if (!response.ok) {
                     throw new Error('Error al obtener los datos del Pokémon');
                 }
                 const pokemonData = await response.json();
+                pokemones.push(pokemonData); // Store the pokemon data
 
                 const tarjeta = document.createElement('div');
                 tarjeta.classList.add('tarjeta');
@@ -84,7 +92,7 @@ function mostrarDetallesPokemon(pokemonData) {
                         <p class="nombre-pokemon">${pokemonData.name}</p>
                     </div>
                 `;
-                
+
                 tarjeta.addEventListener('click', () => mostrarDetallesPokemon(pokemonData));
                 contenedorPokemon.appendChild(tarjeta);
 
@@ -92,6 +100,29 @@ function mostrarDetallesPokemon(pokemonData) {
                 console.error(error);
             }
         });
+    }
+
+    // Función para filtrar Pokémon por tipo
+    function filtrarPorTipo(tipo) {
+        const pokemonesFiltrados = pokemones.filter(pokemon =>
+            pokemon.types.some(typeInfo => typeInfo.type.name === tipo)
+        );
+        mostrarPokemones(pokemonesFiltrados);
+    }
+
+    // Función para mostrar los Pokémon filtrados
+    function mostrarPokemones(listaPokemones) {
+        contenedorPokemon.innerHTML = '';
+        listaPokemones.forEach(pokemon => crearTarjetaPokemon(pokemon));
+    }
+
+    // Función para manejar la búsqueda por nombre
+    function buscarPorNombre() {
+        const nombre = buscadorNombre.value.toLowerCase();
+        const pokemonesFiltrados = pokemones.filter(pokemon =>
+            pokemon.name.toLowerCase().includes(nombre)
+        );
+        mostrarPokemones(pokemonesFiltrados);
     }
 
     // Cargar tarjetas de Pokémon al inicio
