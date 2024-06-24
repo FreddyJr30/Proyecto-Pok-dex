@@ -20,9 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Función para mostrar los detalles del Pokémon seleccionado
 function mostrarDetallesPokemon(pokemonData) {
+    const tipos = pokemonData.types.map(typeInfo => typeInfo.type.name);
+
     cuerpoDetalles.innerHTML = `
         <div class="cuerpo-detalles">
             <img src="${pokemonData.sprites.other['official-artwork'].front_default}" alt="${pokemonData.name}">
+            <div class="tipos">
+                ${tipos.map(tipo => `
+                    <button class="boton-tipo ${tipo}" onclick="filtrarPorTipo('${tipo}')">${tipo}</button>
+                `).join('')}
+            </div>
             <h1>${pokemonData.name}</h1>
             <div class="info">
                 <p>Altura: ${pokemonData.height / 10} m</p>
@@ -32,7 +39,7 @@ function mostrarDetallesPokemon(pokemonData) {
                 ${pokemonData.stats.map(stat => `
                     <p>${stat.stat.name}: ${stat.base_stat}</p>
                     <div class="contenedor-barra">
-                        <div class="barra ${stat.stat.name.toLowerCase()}" data-porcentaje="${stat.base_stat * 0.5}"></div>
+                        <div class="barra ${stat.stat.name.toLowerCase()}" data-porcentaje="${stat.base_stat * 0.8}"></div>
                     </div>
                 `).join('')}
             </div>
