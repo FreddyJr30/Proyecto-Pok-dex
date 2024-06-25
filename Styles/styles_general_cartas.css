@@ -108,7 +108,7 @@ section {
     justify-content: center;
     gap: 20px;
     margin-top: 0px; /* Ajuste para evitar superposición con el encabezado */
-    background-image: url('/images/fondo-animado.gif'); /* Imagen de fondo personalizada */
+    background-image: url('/images/fondo-pokedex.jpg'); /* Imagen de fondo personalizada */
 }
 
 
