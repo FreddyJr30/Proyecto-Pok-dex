@@ -232,6 +232,8 @@ export class Pokedex {
         });
     }
 
+
+
     renderPokemonSelect() {
         const pokemonSelect = document.getElementById('pokemon-select');
         pokemonSelect.innerHTML = '';
@@ -240,4 +242,13 @@ export class Pokedex {
             pokemonSelect.innerHTML += `<option value="${pokemon.id}">${pokemon.name}</option>`;
         });
     }
+
+    deleteTrainer(trainerName) {
+        this.trainers = this.trainers.filter(trainer => trainer.name !== trainerName);
+        this.saveTrainers();
+        this.renderTrainerTeams();
+    }
+
+
+    
 }
