@@ -3,7 +3,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #f7f7f7;
+    background-image: url('/images/fondo-pokedex.jpg'); /* Imagen de fondo personalizada */
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
@@ -100,7 +100,7 @@ header {
 }
 
 section {
-    background-image: url('/images/whats_Pokemon_Vacio.jpeg'); /* Imagen de fondo personalizada */
+    background: linear-gradient(45deg, #f70202, #e66903); /* Fondo degradado */
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
