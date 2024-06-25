@@ -178,8 +178,8 @@ section {
     align-items: center;
 }
 
+/* Estilos generales */
 .contenido-detalles {
-    background-color: #fff;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
@@ -187,6 +187,10 @@ section {
     border-radius: 20px;
     position: relative;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to bottom, #ffffff, #ffffff); /* Fondo blanco para asegurar la superposición del SVG */
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"%3E%3Cpath fill="%23ffffff" d="M0,64L48,69.3C96,75,192,85,288,90.7C384,96,480,96,576,69.3C672,43,768,-11,864,-32C960,-53,1056,-43,1152,-21.3C1248,0,1344,32,1392,48L1440,64L1440,320L0,320Z"%3E%3C/path%3E%3Cpath fill="%23898e8f" d="M0,320L0,320L1440,320L1440,320L1440,320L1440,320Z"%3E%3C/path%3E%3C/svg%3E');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 /* Estilos para los botones de tipos de Pokémon */
@@ -196,7 +200,8 @@ section {
     margin: 5px;
     border: none;
     border-radius: 5px;
-    color: #fff;
+    border: 2px solid #7c7a7a; /* Borde del botón */
+    color: #0e0a0a;
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -227,15 +232,15 @@ section {
 
 
 .cerrar-btn {
-    color: #aaa;
+    color: #069926;
     float: right;
-    font-size: 28px;
+    font-size: 40px;
     font-weight: bold;
 }
 
 .cerrar-btn:hover,
 .cerrar-btn:focus {
-    color: black;
+    color: rgb(255, 0, 0);
     text-decoration: none;
     cursor: pointer;
 }
