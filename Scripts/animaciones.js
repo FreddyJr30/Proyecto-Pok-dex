@@ -32,6 +32,26 @@ const animarBarraEstadisticas = (elemento, porcentaje) => {
     }, 10);
 };
 
+// Detecta el desplazamiento hacia abajo y muestra/oculta el botón de scroll hacia arriba
+window.onscroll = function() {
+    const scrollPosition = document.documentElement.scrollTop; // Obtiene la posición de desplazamiento vertical
+    const topContainer = document.querySelector('.top-container'); // Selecciona el contenedor del botón
+
+    // Si la posición de desplazamiento es mayor a 100 pixels
+    if (scrollPosition > 100) {
+        topContainer.classList.add('show'); // Agrega la clase 'show' para mostrar el botón
+    } else {
+        topContainer.classList.remove('show'); // Quita la clase 'show' para ocultar el botón
+    }
+};
+
+// Maneja el clic en el botón para desplazarse hacia arriba suavemente
+document.querySelector('.top-container').addEventListener('click', () => {
+    window.scrollTo({
+        top: 0, // Se desplaza hasta el inicio de la página
+        behavior: 'smooth' // Desplazamiento suave
+    });
+});
 
 
 
