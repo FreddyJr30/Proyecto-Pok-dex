@@ -277,6 +277,7 @@ section {
     background-color: #e0e0df;
     border-radius: 5px;
     margin: 5px 0;
+    overflow: hidden; /* Evita que el contenido se desborde */
 }
 
 .barra {
