@@ -9,21 +9,25 @@ document.addEventListener('DOMContentLoaded', () => {
     pokedex.renderTeam();
     pokedex.renderTrainerTeams();
 
-    // Manejar el formulario para agregar entrenadores
-    const addTrainerForm = document.getElementById('add-trainer-form');
-    if (addTrainerForm) {
-        addTrainerForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const trainerName = event.target.elements['trainer-name'].value;
-            pokedex.addTrainer(trainerName);
-            event.target.reset();
-            renderTrainerSelect();
+   // Manejar el formulario para agregar entrenadores
+   const addTrainerForm = document.getElementById('add-trainer-form');
+   if (addTrainerForm) {
+       addTrainerForm.addEventListener('submit', (event) => {
+           event.preventDefault();
+           const trainerName = event.target.elements['trainer-name'].value;
 
-            //Actualizacion
-            renderTrainerSelectRemove();
-            renderTrainerSelectDelete();
-        });
-    }
+           if (!pokedex.isTrainerNameTaken(trainerName)) {
+               pokedex.addTrainer(trainerName);
+               event.target.reset();
+               renderTrainerSelect();
+               renderTrainerSelectRemove();
+               renderTrainerSelectDelete();
+               alert('El entrenador se a creado correctamente.');
+           } else {
+               alert('El nombre del entrenador ya está en uso. Por favor, elige otro nombre.');
+           }
+       });
+   }
 
     // Manejar el formulario para asignar Pokémon a entrenadores
     const assignPokemonForm = document.getElementById('assign-pokemon-form');
