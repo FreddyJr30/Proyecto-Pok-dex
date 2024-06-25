@@ -110,9 +110,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     
+    // Función para renderizar las opciones de selección de entrenador para eliminar
+    function renderTrainerSelectDelete() {
+        const trainerSelectDelete = document.getElementById('trainer-select-delete');
+        trainerSelectDelete.innerHTML = '<option value="">Selecciona un entrenador</option>';
+        pokedex.trainers.forEach(trainer => {
+            trainerSelectDelete.innerHTML += `<option value="${trainer.name}">${trainer.name}</option>`;
+        });
+    }
+
 
 
     // Llamar la función de renderizado de las opciones de selección de entrenador al inicio
     renderTrainerSelect();
     renderTrainerSelectRemove();
+    renderTrainerSelectDelete();
 });
