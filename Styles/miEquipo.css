@@ -1,0 +1,226 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f7f7f7;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffcc01;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    width: 100%; /* Ancho al 100% de la página */
+    z-index: 1000;
+    box-sizing: border-box; /* Incluir padding dentro del ancho total */
+}
+
+/* Estilos del título */
+.titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.gif-titulo {
+    width: 400px;
+    height: auto;
+}
+
+/* Estilos de la barra de navegación principal */
+.barra-nav-principal {
+    background-color: #8e8200;
+    padding: 10px 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.barra-nav-principal ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.barra-nav-principal ul li {
+    margin-right: 20px;
+}
+
+.barra-nav-principal ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.barra-nav-principal ul li a:hover {
+    background-color: #385faa;
+    border-radius: 5px;
+}
+
+/* Estilos generales de secciones */
+section {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 70%; /* Abarca el 70% del body */
+    margin: 20px auto; /* Centrar la sección */
+}
+
+/* Estilos específicos de las secciones */
+.accompanying-pokemons h2,
+.trainer-teams h2 {
+    margin-top: 0;
+    color: #ffcb05;
+    text-align: center;
+    text-shadow: 1px 1px 2px #2a75bb;
+}
+
+/* Estilos para los formularios */
+form {
+    width: 70%; /* Ancho del formulario al 70% */
+    margin: 0 auto; /* Centrar formulario */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form h3 {
+    margin-top: 0;
+    color: #ffcb05;
+    text-align: center;
+    text-shadow: 1px 1px 2px #2a75bb;
+}
+
+form input[type="text"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form button {
+    background: linear-gradient(145deg, #ffcb05, #ffc107);
+    border: none;
+    padding: 10px 20px;
+    color: #2a75bb;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form button:hover {
+    background: linear-gradient(145deg, #ffc107, #ffcb05);
+    transform: translateY(-2px);
+}
+
+form button:active {
+    background: linear-gradient(145deg, #ffca28, #ffb300);
+    transform: translateY(2px);
+}
+
+/* Estilos para el contenedor de equipos de entrenadores */
+.team-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.team-list .pokemon-card {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.team-list .pokemon-card h3 {
+    margin-top: 0;
+    color: #2a75bb;
+}
+
+#pokedex {
+    display: none;
+}
+
+/* Animación de movimiento */
+@keyframes movePokemon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.pokemon-card:hover img {
+    animation: movePokemon 0.5s infinite;
+}
+
+.pokedex, .accompanying-pokemons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+    width: 70%; /* Abarca el 70% del body */
+}
+
+.pokemon-card {
+    position: relative;
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.pokemon-card img {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s;
+}
+
+.pokemon-card h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.pokemon-card button {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+.pokemon-card button:hover {
+    background-color: #0056b3;
+}
+
