@@ -18,6 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pokedex.addTrainer(trainerName);
             event.target.reset();
             renderTrainerSelect();
+
+            //Actualizacion
+            renderTrainerSelectRemove();
+            renderTrainerSelectDelete();
         });
     }
 
@@ -32,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (pokemon) {
                 pokedex.assignPokemonToTrainer(trainerName, pokemon);
                 pokedex.renderTeam();
+                renderTrainerSelectRemove();  // Actualizar selectores de eliminación
             }
             event.target.reset();
         });
