@@ -240,4 +240,7 @@ export class Pokedex {
             pokemonSelect.innerHTML += `<option value="${pokemon.id}">${pokemon.name}</option>`;
         });
     }
+
+
+    
 }
