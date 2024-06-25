@@ -296,3 +296,38 @@ section {
 }
 
 
+
+
+
+/* Estilos del botón de scroll hacia arriba */
+#Arrow{
+    position: fixed;
+    right: 20px; /* distancia desde el borde derecho */
+    bottom: 20px; /* distancia desde el borde inferior */
+    transition: all 1s ;
+    background-color: #f40b0b;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50px;
+    border: solid 2px yellow;
+  }
+  
+  /* Estilos cuando el cursor pasa sobre el botón */
+  #Arrow:hover{
+    border-radius: 10px;
+    transition: all ease 300ms;
+    border: solid 2px yellow;
+  }
+
+/* Estilos para gestionar la visibilidad del contenedor */
+.top-container {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+/* Estilos cuando el contenedor tiene la clase 'show' */
+.top-container.show {
+    display: block;
+    opacity: 1;
+}
