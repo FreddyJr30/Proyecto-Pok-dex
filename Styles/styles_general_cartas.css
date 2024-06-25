@@ -145,6 +145,17 @@ section {
     width: 100px;
     height: auto;
     border-radius: 50%;
+    position: relative; /* Necesario para las transformaciones */
+    animation: saltar 1s infinite alternate ease-in-out; /* Animación de salto */
+}
+
+@keyframes saltar {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px); /* Movimiento hacia arriba */
+    }
 }
 
 .nombre-pokemon {
