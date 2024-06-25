@@ -27,12 +27,11 @@ header {
     color: #fff;
     position: sticky;
     top: 0;
-    width: 100%; /* Ancho al 100% de la página */
+    width: 100%;
     z-index: 1000;
-    box-sizing: border-box; /* Incluir padding dentro del ancho total */
+    box-sizing: border-box;
 }
 
-/* Estilos del título */
 .titulo {
     display: flex;
     justify-content: center;
@@ -45,7 +44,6 @@ header {
     height: auto;
 }
 
-/* Estilos de la barra de navegación principal */
 .barra-nav-principal {
     background-color: #8e8200;
     padding: 10px 20px;
@@ -78,18 +76,14 @@ header {
     border-radius: 5px;
 }
 
-/* Estilos generales de secciones */
 section {
     background-color: #fff;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 70%; /* Abarca el 70% del body */
-    margin: 20px auto; /* Centrar la sección */
 }
 
-/* Estilos específicos de las secciones */
 .accompanying-pokemons h2,
 .trainer-teams h2 {
     margin-top: 0;
@@ -98,10 +92,9 @@ section {
     text-shadow: 1px 1px 2px #2a75bb;
 }
 
-/* Estilos para los formularios */
 form {
-    width: 70%; /* Ancho del formulario al 70% */
-    margin: 0 auto; /* Centrar formulario */
+    width: 70%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -146,14 +139,13 @@ form button:active {
     transform: translateY(2px);
 }
 
-/* Estilos para el contenedor de equipos de entrenadores */
-.team-list {
+.team-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.team-list .pokemon-card {
+.team-container .pokemon-card {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -163,16 +155,24 @@ form button:active {
     transition: transform 0.3s;
 }
 
-.team-list .pokemon-card h3 {
-    margin-top: 0;
-    color: #2a75bb;
+.accompanying-pokemons,
+.trainer-teams {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    width: 70%;
 }
 
-#pokedex {
+.trainer-team {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#pokedex, #accompanying-pokemons {
     display: none;
 }
 
-/* Animación de movimiento */
 @keyframes movePokemon {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
@@ -180,14 +180,6 @@ form button:active {
 
 .pokemon-card:hover img {
     animation: movePokemon 0.5s infinite;
-}
-
-.pokedex, .accompanying-pokemons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 20px;
-    width: 70%; /* Abarca el 70% del body */
 }
 
 .pokemon-card {
@@ -223,4 +215,3 @@ form button:active {
 .pokemon-card button:hover {
     background-color: #0056b3;
 }
-
