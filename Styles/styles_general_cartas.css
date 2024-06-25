@@ -56,6 +56,7 @@ header {
 
 .barra-nav-principal ul li {
     margin-right: 20px;
+    padding:  0;
 }
 
 .barra-nav-principal ul li a {
@@ -63,6 +64,8 @@ header {
     text-decoration: none;
     padding: 10px;
     transition: background-color 0.3s;
+    display: flex; 
+    align-items: center; 
 }
 
 .barra-nav-principal ul li a:hover {
