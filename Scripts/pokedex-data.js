@@ -23,39 +23,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-// Función para mostrar los detalles del Pokémon seleccionado
-function mostrarDetallesPokemon(pokemonData) {
-    const tipos = pokemonData.types.map(typeInfo => typeInfo.type.name);
+    // Función para mostrar los detalles del Pokémon seleccionado
+    function mostrarDetallesPokemon(pokemonData) {
+        const tipos = pokemonData.types.map(typeInfo => typeInfo.type.name);
 
-    cuerpoDetalles.innerHTML = `
-        <div class="cuerpo-detalles">
-            <img src="${pokemonData.sprites.other['official-artwork'].front_default}" alt="${pokemonData.name}">
-            <div class="tipos">
-                ${tipos.map(tipo => `
-                    <button class="boton-tipo ${tipo}" onclick="filtrarPorTipo('${tipo}')">${tipo}</button>
-                `).join('')}
+        cuerpoDetalles.innerHTML = `
+            <div class="cuerpo-detalles">
+                <img src="${pokemonData.sprites.other['official-artwork'].front_default}" alt="${pokemonData.name}">
+                <div class="tipos">
+                    ${tipos.map(tipo => `
+                        <button class="boton-tipo ${tipo}" data-tipo="${tipo}">${tipo}</button>
+                    `).join('')}
+                </div>
+                <h1>${pokemonData.name}</h1>
+                <div class="info">
+                    <p>Altura: ${pokemonData.height / 10} m</p>
+                    <p>Peso: ${pokemonData.weight / 10} kg</p>
+                </div>
+                <div class="estadisticas">
+                    ${pokemonData.stats.map(stat => `
+                        <p>${stat.stat.name}: ${stat.base_stat}</p>
+                        <div class="contenedor-barra">
+                            <div class="barra ${stat.stat.name.toLowerCase()}" data-porcentaje="${stat.base_stat * 0.8}"></div>
+                        </div>
+                    `).join('')}
+                </div>
             </div>
-            <h1>${pokemonData.name}</h1>
-            <div class="info">
-                <p>Altura: ${pokemonData.height / 10} m</p>
-                <p>Peso: ${pokemonData.weight / 10} kg</p>
-            </div>
-            <div class="estadisticas">
-                ${pokemonData.stats.map(stat => `
-                    <p>${stat.stat.name}: ${stat.base_stat}</p>
-                    <div class="contenedor-barra">
-                        <div class="barra ${stat.stat.name.toLowerCase()}" data-porcentaje="${stat.base_stat * 0.8}"></div>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
-    `;
-    detallesPokemon.style.display = 'flex';
+        `;
+        detallesPokemon.style.display = 'flex';
 
-    // Ahora vamos a animar las barras de estadísticas
-    animarBarras();
-}
-
+        // Ahora vamos a animar las barras de estadísticas
+        animarBarras();
+    }
 
     // Evento para cerrar el modal de detalles
     cerrarBtn.addEventListener('click', () => {
@@ -74,7 +73,7 @@ function mostrarDetallesPokemon(pokemonData) {
         const pokemonesData = await obtenerPokemones();
         pokemones = []; // Reset the pokemones array
 
-        pokemonesData.forEach(async (pokemon) => {
+        for (const pokemon of pokemonesData) {
             try {
                 const response = await fetch(pokemon.url);
                 if (!response.ok) {
@@ -82,24 +81,28 @@ function mostrarDetallesPokemon(pokemonData) {
                 }
                 const pokemonData = await response.json();
                 pokemones.push(pokemonData); // Store the pokemon data
-
-                const tarjeta = document.createElement('div');
-                tarjeta.classList.add('tarjeta');
-                tarjeta.style.backgroundImage = `url('https://upload.wikimedia.org/wikipedia/commons/5/53/Poké_Ball_icon.svg')`;
-                tarjeta.innerHTML = `
-                    <div class="contenido-tarjeta">
-                        <img src="${pokemonData.sprites.front_default}" alt="${pokemonData.name}" class="imagen-pokemon">
-                        <p class="nombre-pokemon">${pokemonData.name}</p>
-                    </div>
-                `;
-
-                tarjeta.addEventListener('click', () => mostrarDetallesPokemon(pokemonData));
-                contenedorPokemon.appendChild(tarjeta);
+                crearTarjetaPokemon(pokemonData);
 
             } catch (error) {
                 console.error(error);
             }
-        });
+        }
+    }
+
+    // Función para crear una tarjeta de Pokémon
+    function crearTarjetaPokemon(pokemon) {
+        const tarjeta = document.createElement('div');
+        tarjeta.classList.add('tarjeta');
+        tarjeta.style.backgroundImage = `url('https://upload.wikimedia.org/wikipedia/commons/5/53/Poké_Ball_icon.svg')`;
+        tarjeta.innerHTML = `
+            <div class="contenido-tarjeta">
+                <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" class="imagen-pokemon">
+                <p class="nombre-pokemon">${pokemon.name}</p>
+            </div>
+        `;
+
+        tarjeta.addEventListener('click', () => mostrarDetallesPokemon(pokemon));
+        contenedorPokemon.appendChild(tarjeta);
     }
 
     // Función para filtrar Pokémon por tipo
@@ -145,6 +148,14 @@ function mostrarDetallesPokemon(pokemonData) {
     buscadorTipo.addEventListener('change', buscarPorTipo);
 
     // Inicializar la Pokédex al cargar la página
-    window.addEventListener('DOMContentLoaded', crearTarjetasPokemon);
+    crearTarjetasPokemon();
 
+    // Evento delegado para manejar clics en los botones de tipo dentro del modal
+    document.addEventListener('click', (event) => {
+        if (event.target.classList.contains('boton-tipo')) {
+            const tipo = event.target.dataset.tipo;
+            filtrarPorTipo(tipo);
+            detallesPokemon.style.display = 'none'; // Cierra el modal al hacer clic en un tipo
+        }
+    });
 });

@@ -176,6 +176,43 @@ section {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Estilos para los botones de tipos de Pokémon */
+.boton-tipo {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.boton-tipo:hover {
+    opacity: 0.8;
+}
+
+/* Colores de ejemplo para algunos tipos */
+.boton-tipo.grass { background-color: #78C850; }
+.boton-tipo.fire { background-color: #F08030; }
+.boton-tipo.water { background-color: #6890F0; }
+.boton-tipo.electric { background-color: #F8D030; }
+.boton-tipo.ice { background-color: #98D8D8; }
+.boton-tipo.fighting { background-color: #C03028; }
+.boton-tipo.poison { background-color: #A040A0; }
+.boton-tipo.ground { background-color: #E0C068; }
+.boton-tipo.flying { background-color: #A890F0; }
+.boton-tipo.psychic { background-color: #F85888; }
+.boton-tipo.bug { background-color: #A8B820; }
+.boton-tipo.rock { background-color: #B8A038; }
+.boton-tipo.ghost { background-color: #705898; }
+.boton-tipo.dragon { background-color: #7038F8; }
+.boton-tipo.dark { background-color: #705848; }
+.boton-tipo.steel { background-color: #B8B8D0; }
+.boton-tipo.fairy { background-color: #EE99AC; }
+
+
 .cerrar-btn {
     color: #aaa;
     float: right;
