@@ -110,14 +110,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     
-    // Función para renderizar las opciones de selección de entrenador para eliminar
-    function renderTrainerSelectDelete() {
-        const trainerSelectDelete = document.getElementById('trainer-select-delete');
-        trainerSelectDelete.innerHTML = '<option value="">Selecciona un entrenador</option>';
-        pokedex.trainers.forEach(trainer => {
-            trainerSelectDelete.innerHTML += `<option value="${trainer.name}">${trainer.name}</option>`;
-        });
-    }
+     // Manejar el formulario para eliminar un entrenador
+     const deleteTrainerForm = document.getElementById('delete-trainer-form');
+     if (deleteTrainerForm) {
+         deleteTrainerForm.addEventListener('submit', (event) => {
+             event.preventDefault();
+             const trainerName = event.target.elements['trainer-select-delete'].value;
+             pokedex.deleteTrainer(trainerName);
+             event.target.reset();
+ 
+             renderTrainerSelect();
+             renderTrainerSelectRemove();
+             renderTrainerSelectDelete();
+         });
+     }
+
+
+   // Función para renderizar las opciones de selección de entrenador para eliminar
+   function renderTrainerSelectDelete() {
+       const trainerSelectDelete = document.getElementById('trainer-select-delete');
+       trainerSelectDelete.innerHTML = '<option value="">Selecciona un entrenador</option>';
+       pokedex.trainers.forEach(trainer => {
+           trainerSelectDelete.innerHTML += `<option value="${trainer.name}">${trainer.name}</option>`;
+       });
+   }
 
 
 
