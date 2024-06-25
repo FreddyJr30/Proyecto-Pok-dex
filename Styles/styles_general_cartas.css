@@ -248,7 +248,19 @@ section {
     width: 150px;
     height: auto;
     margin-bottom: 20px;
+    position: relative; /* Necesario para las transformaciones */
+    animation: mover 2s linear infinite alternate; /* Animación de movimiento */
 }
+
+@keyframes mover {
+    0% {
+        transform: translateX(-50%); /* Inicia desde el centro de la imagen */
+    }
+    100% {
+        transform: translateX(50%); /* Desplazamiento horizontal hacia la derecha */
+    }
+}
+
 
 .cuerpo-detalles .info,
 .cuerpo-detalles .estadisticas {
