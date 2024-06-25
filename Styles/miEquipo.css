@@ -40,13 +40,13 @@ header {
 }
 
 .gif-titulo {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     height: auto;
 }
 
 .barra-nav-principal {
     background-color: #8e8200;
-    padding: 10px 20px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -58,22 +58,53 @@ header {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 0;
 }
 
 .barra-nav-principal ul li {
-    margin-right: 20px;
+    margin: 5px 10px;
 }
 
 .barra-nav-principal ul li a {
     color: #fff;
     text-decoration: none;
     padding: 10px;
+    display: flex;
+    align-items: center;
     transition: background-color 0.3s;
+}
+
+.barra-nav-principal ul li a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
 }
 
 .barra-nav-principal ul li a:hover {
     background-color: #385faa;
     border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .barra-nav-principal ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .barra-nav-principal ul li {
+        margin: 5px 0;
+    }
+}
+
+/* Estilos generales de secciones */
+section {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 section {
