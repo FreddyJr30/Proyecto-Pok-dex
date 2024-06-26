@@ -6,8 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const buscadorNombre = document.getElementById('buscador-nombre');
     const buscadorTipo = document.getElementById('buscador-tipo');
     const mostrarTodosBtn = document.getElementById('mostrar-todos');
+    const modalOpciones = document.getElementById('modal-opciones');
 
     let pokemones = []; // Lista para almacenar todos los Pokémon
+
+    // Equipos preestablecidos
+    const equipos = {
+        equipo1: [],
+        equipo2: [],
+        equipo3: [],
+        equipo4: [],
+        equipo5: [],
+        equipo6: []
+    };
 
     // Función para obtener datos de los Pokémon desde la API
     async function obtenerPokemones(offset = 0, limit = 150) {
@@ -35,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="boton-tipo ${tipo}" data-tipo="${tipo}">${tipo}</button>
                     `).join('')}
                 </div>
+                <button class="agregar-equipo-btn" data-pokemon-id="${pokemonData.id}">Agregar a Equipo</button>
                 <h1>${pokemonData.name}</h1>
                 <div class="info">
                     <p>Altura: ${pokemonData.height / 10} m</p>
@@ -158,4 +170,81 @@ document.addEventListener('DOMContentLoaded', () => {
             detallesPokemon.style.display = 'none'; // Cierra el modal al hacer clic en un tipo
         }
     });
+
+    //****Funciones para agregar equipos
+    // Función para agregar un Pokémon a un equipo
+    function agregarPokemonAlEquipo(pokemonId, equipoId) {
+        const equipo = equipos[`equipo${equipoId}`];
+        const pokemon = pokemones.find(p => p.id == pokemonId);
+
+        if (equipo.length < 6) {
+            equipo.push(pokemon);
+            guardarEquipos();
+            mostrarEquipos();
+        } else {
+            alert('El equipo ya tiene 6 Pokémon.');
+        }
+    }
+
+    // Función para mostrar los Pokémon en los equipos
+    function mostrarEquipos() {
+        for (let i = 1; i <= 6; i++) {
+            const contenedorEquipo = document.getElementById(`contenedor-equipo${i}`);
+            contenedorEquipo.innerHTML = '';
+
+            if (equipos[`equipo${i}`]) {
+                equipos[`equipo${i}`].forEach(pokemon => {
+                    if (pokemon && pokemon.sprites && pokemon.sprites.front_default) {
+                        const divPokemon = document.createElement('div');
+                        divPokemon.classList.add('pokemon-equipo');
+                        divPokemon.innerHTML = `
+                        <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+                        <p>${pokemon.name}</p>
+                    `;
+                        contenedorEquipo.appendChild(divPokemon);
+                    } else {
+                        console.error(`Error: Pokémon en equipo ${i} no tiene datos de sprites disponibles.`);
+                    }
+                });
+            }
+        }
+    }
+
+    // Función para cargar los equipos desde localStorage
+    function cargarEquipos() {
+        const equiposGuardados = localStorage.getItem('equipos');
+        if (equiposGuardados) {
+            Object.assign(equipos, JSON.parse(equiposGuardados));
+            mostrarEquipos();
+        }
+    }
+
+    // Función para guardar los equipos en localStorage
+    function guardarEquipos() {
+        localStorage.setItem('equipos', JSON.stringify(equipos));
+    }
+
+    // Manejador para el botón "Agregar a Equipo"
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('agregar-equipo-btn')) {
+            const pokemonId = e.target.getAttribute('data-pokemon-id');
+            modalOpciones.classList.add('active');
+            modalOpciones.setAttribute('data-pokemon-id', pokemonId);
+        }
+    });
+
+    // Manejador para los botones dentro del modal de opciones
+    document.querySelectorAll('.opciones-equipo button').forEach(button => {
+        button.addEventListener('click', () => {
+            const equipoId = button.getAttribute('data-equipo');
+            const pokemonId = modalOpciones.getAttribute('data-pokemon-id');
+
+            agregarPokemonAlEquipo(pokemonId, equipoId);
+
+            modalOpciones.classList.remove('active');
+        });
+    });
+
+    // Inicializar la aplicación
+    cargarEquipos();
 });

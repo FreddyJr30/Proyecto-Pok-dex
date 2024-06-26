@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokemon
-        
-    </title>
+    <title>Pokemon</title>
     <link rel="stylesheet" href="./Styles/styles_general_cartas.css">
 </head>
 <body>
@@ -23,7 +21,7 @@
             </ul>
         </nav>
     </header>
-    <section id="contenedor-pokemon" class="contenedor">
+    <section id="contenedor-pokemon" class="contenedor-pokemon">
         <div class="buscador">
             <input type="text" id="buscador-nombre" placeholder="Buscar Pokémon por nombre...">
             <select id="buscador-tipo">
@@ -37,18 +35,42 @@
         </div>
         <!-- Tarjetas de Pokémon se añadirán aquí -->
     </section>
+    
     <section id="seccion-acompanantes">
         <!-- Contenido para la sección Mis Acompañantes -->
-        <div class="titulo-seccion">
-            <h2>Mis Acompañantes</h2>
-        </div>
-        <div id="acompanantes-list" class="pokemons-list">
-            <!-- Lista de Pokémon acompañantes -->
-        </div>
+        <section class="equipos">
+            <h2>Mis Equipos</h2>
+            <div id="equipo1" class="equipo">
+                <h3>Equipo de Kelly</h3>
+                <div class="contenedor-equipo" id="contenedor-equipo1"></div>
+            </div>
+            <div id="equipo2" class="equipo">
+                <h3>Equipo de Freddy</h3>
+                <div class="contenedor-equipo" id="contenedor-equipo2"></div>
+            </div>
+            <div id="equipo3" class="equipo">
+                <h3>Equipo de Yair</h3>
+                <div class="contenedor-equipo" id="contenedor-equipo3"></div>
+            </div>
+            <div id="equipo4" class="equipo">
+                <h3>Equipo de Steven</h3>
+                <div class="contenedor-equipo" id="contenedor-equipo4"></div>
+            </div>
+            <div id="equipo5" class="equipo">
+                <h3>Equipo de Miguel</h3>
+                <div class="contenedor-equipo" id="contenedor-equipo5"></div>
+            </div>
+            <div id="equipo6" class="equipo">
+                <h3>Equipo de Brayan</h3>
+                <div class="contenedor-equipo" id="contenedor-equipo6"></div>
+            </div>
+        </section>
     </section>
+
     <section id="seccion-entrenadores">
         <!-- Contenido para la sección Entrenadores -->
     </section>
+
     <div id="detalles-pokemon" class="detalles-pokemon">
         <div class="contenido-detalles" id="contenido-detalles">
             <span class="cerrar-btn" id="cerrar-btn">&times;</span>
@@ -56,11 +78,22 @@
         </div>
     </div>
 
+    <div class="modal-opciones" id="modal-opciones">
+        <div class="opciones-equipo">
+            <p>¿A cuál equipo deseas agregar este Pokémon?</p>
+            <button data-equipo="1">Equipo de Kelly</button>
+            <button data-equipo="2">Equipo de Freddy</button>
+            <button data-equipo="3">Equipo de Yair</button>
+            <button data-equipo="4">Equipo de Steven</button>
+            <button data-equipo="5">Equipo de Miguel</button>
+            <button data-equipo="6">Equipo de Brayan</button>
+        </div>
+    </div>
+
     <!-- Este div crea un contenedor para un ícono de flecha que se usará como botón de desplazamiento hacia arriba en la página web. -->
     <div class="top-container">
         <img src="./images/arrow.png" id="Arrow" alt="Arrow">
     </div>
-
 
     <script src="./Scripts/pokedex-data.js"></script>
     <script src="./Scripts/animaciones.js"></script>
