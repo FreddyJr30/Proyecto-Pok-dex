@@ -1,3 +1,5 @@
+/******************************************************************************************************************/
+
 /* Estilos generales */
 body {
     display: flex;
@@ -36,6 +38,8 @@ header {
     max-width: 400px;
     height: auto;
 }
+
+/******************************************************************************************************************/
 
 /* Estilos de la barra de navegación principal */
 .barra-nav-principal {
@@ -91,6 +95,8 @@ header {
     }
 }
 
+/******************************************************************************************************************/
+
 /* Estilos de las secciones */
 section {
     width: 100%;
@@ -109,7 +115,10 @@ section {
     margin-top: 0px; /* Ajuste para evitar superposición con el encabezado */
     background-image: url('/images/fondo-pokedex.jpg'); /* Imagen de fondo personalizada */
 }
-/*****Para mostrar los equipos****/
+
+/******************************************************************************************************************/
+
+/* Para mostrar los equipos */
 #seccion-acompanantes {
     display: flex;
     flex-direction: column;
@@ -119,6 +128,8 @@ section {
     background-position: center;
     padding: 20px;
 }
+
+/******************************************************************************************************************/
 
 /* Estilos para la sección de equipos */
 .equipos {
@@ -157,25 +168,7 @@ section {
     gap: 20px;
 }
 
-/* Estilos del botón de eliminar */
-.eliminar-btn {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    color: #000;
-    font-size: 20px;
-    cursor: pointer;
-    transition: color 0.3s;
-    border: none;
-    background: none;
-}
-
-.eliminar-btn:hover {
-    color: #ff3333; /* Cambio de tono al pasar el cursor */
-}
-
-
-/********************************************8****/
+/******************************************************************************************************************/
 
 #seccion-entrenadores {
     background-image: url('fondo-entrenadores.jpg'); /* Imagen de fondo personalizada */
@@ -218,7 +211,13 @@ section {
     transition: opacity 0.3s;
 }
 
-/**** Boton para agregar equipo **/
+.tarjeta:hover .contenido-tarjeta {
+    opacity: 1;
+}
+
+/******************************************************************************************************************/
+
+/* Boton para agregar equipo */
 .agregar-equipo-btn {
     background-color: #4caf50; /* Color de fondo inicial */
     color: white; /* Color del texto */
@@ -242,8 +241,10 @@ section {
     opacity: 1;
 }
 
+/******************************************************************************************************************/
+
 .imagen-pokemon {
-    width: 100px;
+    width: 150px;
     height: auto;
     border-radius: 50%;
     position: relative; /* Necesario para las transformaciones */
@@ -263,6 +264,8 @@ section {
     font-size: 20px;
     margin: 10px 0;
 }
+
+/******************************************************************************************************************/
 
 /* Estilos del modal de detalles */
 .detalles-pokemon {
@@ -294,6 +297,8 @@ section {
     background-repeat: no-repeat;
 }
 
+/******************************************************************************************************************/
+
 /* Estilos para los botones de tipos de Pokémon */
 .boton-tipo {
     display: inline-block;
@@ -316,6 +321,7 @@ section {
 .boton-tipo.grass { background-color: #78C850; }
 .boton-tipo.fire { background-color: #F08030; }
 .boton-tipo.water { background-color: #6890F0; }
+.boton-tipo.normal { background-color: #CECEDB; }
 .boton-tipo.electric { background-color: #F8D030; }
 .boton-tipo.ice { background-color: #98D8D8; }
 .boton-tipo.fighting { background-color: #C03028; }
@@ -328,9 +334,10 @@ section {
 .boton-tipo.ghost { background-color: #705898; }
 .boton-tipo.dragon { background-color: #7038F8; }
 .boton-tipo.dark { background-color: #705848; }
-.boton-tipo.steel { background-color: #B8B8D0; }
+.boton-tipo.steel { background-color: #8D8D8F; }
 .boton-tipo.fairy { background-color: #EE99AC; }
 
+/******************************************************************************************************************/
 
 .cerrar-btn {
     color: #069926;
@@ -345,6 +352,8 @@ section {
     text-decoration: none;
     cursor: pointer;
 }
+
+/******************************************************************************************************************/
 
 .cuerpo-detalles {
     text-align: center;
@@ -366,7 +375,6 @@ section {
         transform: translateX(50%); /* Desplazamiento horizontal hacia la derecha */
     }
 }
-
 
 .cuerpo-detalles .info,
 .cuerpo-detalles .estadisticas {
@@ -393,6 +401,8 @@ section {
     background-color: #ddd; /* Color base de la barra */
 }
 
+/******************************************************************************************************************/
+
 /* Estilos del botón de scroll hacia arriba */
 #Arrow{
     position: fixed;
@@ -413,6 +423,8 @@ section {
     border: solid 2px yellow;
   }
 
+  /******************************************************************************************************************/
+
 /* Estilos para gestionar la visibilidad del contenedor */
 .top-container {
     display: none;
@@ -425,6 +437,8 @@ section {
     display: block;
     opacity: 1;
 }
+
+/******************************************************************************************************************/
 
 /* Modal de Opciones de Equipo */
 .modal-opciones {
@@ -443,6 +457,8 @@ section {
 .modal-opciones.active {
     display: flex; /* Mostrar el modal cuando tiene la clase 'active' */
 }
+
+/******************************************************************************************************************/
 
 .opciones-equipo {
     background-color: white;
@@ -469,8 +485,7 @@ section {
     background-color: #0056b3;
 }
 
-
-
+/******************************************************************************************************************/
 
 /* Estilos generales del scrollbar */
 ::-webkit-scrollbar {
@@ -504,7 +519,7 @@ section {
     max-height: 300px; /* Ejemplo de altura máxima, ajusta según tus necesidades */
 }
 
-
+/******************************************************************************************************************/
 
 /* Estilo para la sección de estadísticas */
 .seccion-detalles#estadisticas {
@@ -532,7 +547,7 @@ section {
     margin-bottom: 5px;
 }
 
-
+/******************************************************************************************************************/
 
 /* Estilo para la barra de navegación */
 .nav-items {
@@ -556,58 +571,68 @@ section {
     color: #ff9900; /* Color diferente al pasar el cursor */
 }
 
+/******************************************************************************************************************/
+
 /**** Disenio Tarjetas ****/
-.pokemon-card {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    width: 200px;
-    margin: 10px;
-    padding: 15px;
-    background-color: #f9f9f9;
+
+/* Estilos para las tarjetas de Pokémon en el equipo */
+.pokemon-equipo {
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin: 5px;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    display: inline-block;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.pokemon-card-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.pokemon-image {
+.pokemon-equipo img {
     width: 100px;
     height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.pokemon-info {
     margin-top: 10px;
+    position: relative; /* Necesario para las transformaciones */
+    animation: saltar 1s infinite alternate ease-in-out; /* Animación de salto */
 }
 
-.pokemon-name {
-    font-size: 1.2em;
-    font-weight: bold;
+@keyframes saltar {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px); /* Movimiento hacia arriba */
+    }
+}
+
+.pokemon-equipo p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: oblique;
     margin: 5px 0;
+    color: #fff;
+    border-color: #0e0a0a;
+    text-transform: capitalize;
 }
 
-.pokemon-description {
-    font-size: 0.9em;
-    color: #666;
-    margin: 5px 0;
-}
-
-.remove {
-    background-color: #ff4d4d;
-    color: white;
+.eliminar-pokemon-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #069926;
     border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 5px;
+    border-radius: 50%;
     cursor: pointer;
-    margin-top: 10px;
-    font-size: 0.9em;
+    font-size: 15px;
+    line-height: 1;
 }
 
-.remove:hover {
-    background-color: #e60000;
+.eliminar-pokemon-btn:hover,
+.eliminar-pokemon-btn:focus {
+    color: rgb(255, 0, 0);
+    text-decoration: none;
+    cursor: pointer;
 }
+
+/******************************************************************************************************************/
