@@ -186,6 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             divPokemon.innerHTML = `
                                 <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
                                 <p>${pokemon.name}</p>
+                                <button class="eliminar-pokemon-btn" data-pokemon-id="${pokemon.id}" data-equipo-id="${i}">Eliminar</button>
                             `;
                             contenedorEquipo.appendChild(divPokemon);
                         } else {
