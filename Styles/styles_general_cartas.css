@@ -291,8 +291,7 @@ section {
     border-radius: 20px;
     position: fixed; /* Cambiar a fixed para centrarlo en la pantalla */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(to bottom, #ffffff, #ffffff); /* Fondo blanco para asegurar la superposición del SVG */
-    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"%3E%3Cpath fill="%23ffffff" d="M0,64L48,69.3C96,75,192,85,288,90.7C384,96,480,96,576,69.3C672,43,768,-11,864,-32C960,-53,1056,-43,1152,-21.3C1248,0,1344,32,1392,48L1440,64L1440,320L0,320Z"%3E%3C/path%3E%3Cpath fill="%23898e8f" d="M0,320L0,320L1440,320L1440,320L1440,320L1440,320Z"%3E%3C/path%3E%3C/svg%3E');
+    background-color: rgb(209, 193, 193);
     background-size: cover;
     background-repeat: no-repeat;
     top: 50%; /* Centrar verticalmente */
@@ -331,6 +330,109 @@ section {
 .boton-tipo:hover {
     opacity: 0.8;
 }
+
+/************************************************************/
+.pokemon-card {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background-size: cover;
+}
+
+.imagen-contenedor {
+    position: relative;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    background: transparent;
+}
+
+.imagen-contenedor::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.8; /* Ajusta la opacidad según tus necesidades */
+}
+
+/* Gradientes para los tipos de Pokémon */
+.grass::before {
+    background: linear-gradient(135deg, #78C850, #4E8234);
+}
+
+.poison::before {
+    background: linear-gradient(135deg, #A040A0, #6E006E);
+}
+
+.fire::before {
+    background: linear-gradient(135deg, #F08030, #9C531F);
+}
+
+.water::before {
+    background: linear-gradient(135deg, #6890F0, #445E9C);
+}
+
+/* Añade más gradientes para otros tipos de Pokémon */
+.electric::before {
+    background: linear-gradient(135deg, #F8D030, #A1871F);
+}
+
+.ice::before {
+    background: linear-gradient(135deg, #98D8D8, #638D8D);
+}
+
+.fighting::before {
+    background: linear-gradient(135deg, #C03028, #7D1F1A);
+}
+
+.ground::before {
+    background: linear-gradient(135deg, #E0C068, #927D44);
+}
+
+.flying::before {
+    background: linear-gradient(135deg, #A890F0, #6D5E9C);
+}
+
+.psychic::before {
+    background: linear-gradient(135deg, #F85888, #A13959);
+}
+
+.bug::before {
+    background: linear-gradient(135deg, #A8B820, #6D7815);
+}
+
+.rock::before {
+    background: linear-gradient(135deg, #B8A038, #786824);
+}
+
+.ghost::before {
+    background: linear-gradient(135deg, #705898, #493963);
+}
+
+.dark::before {
+    background: linear-gradient(135deg, #705848, #49392F);
+}
+
+.dragon::before {
+    background: linear-gradient(135deg, #7038F8, #4924A1);
+}
+
+.steel::before {
+    background: linear-gradient(135deg, #B8B8D0, #787887);
+}
+
+.fairy::before {
+    background: linear-gradient(135deg, #EE99AC, #9B6470);
+}
+/***********************************************************************/
 
 /* Colores de ejemplo para algunos tipos */
 .boton-tipo.grass { background-color: #78C850; }
