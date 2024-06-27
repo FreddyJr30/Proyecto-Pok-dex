@@ -157,6 +157,24 @@ section {
     gap: 20px;
 }
 
+/* Estilos del botón de eliminar */
+.eliminar-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #000;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+    border: none;
+    background: none;
+}
+
+.eliminar-btn:hover {
+    color: #ff3333; /* Cambio de tono al pasar el cursor */
+}
+
+
 /********************************************8****/
 
 #seccion-entrenadores {
