@@ -469,6 +469,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const pokedex = new Pokedex();
 
+/******************************************************************************************************************/
+
     // Aplicar imagen de fondo al contenedor principal de Pokémon
     const contenedorPokemon = document.getElementById('contenedor-pokemon');
     if (contenedorPokemon) {
@@ -477,4 +479,15 @@ document.addEventListener('DOMContentLoaded', () => {
         contenedorPokemon.style.backgroundRepeat = 'no-repeat';
         contenedorPokemon.style.backgroundPosition = 'center';
     }
+
+    // Aplicar imagen de fondo a la sección acompañantes
+    const seccionAcompanantes = document.getElementById('seccion-acompanantes');
+    if (seccionAcompanantes) {
+        seccionAcompanantes.style.backgroundImage = "url('./images/fondo-pokedex.jpg')";
+        seccionAcompanantes.style.backgroundSize = 'cover';
+        seccionAcompanantes.style.backgroundRepeat = 'no-repeat';
+        seccionAcompanantes.style.backgroundPosition = 'center';
+    }
 });
+
+/******************************************************************************************************************/
