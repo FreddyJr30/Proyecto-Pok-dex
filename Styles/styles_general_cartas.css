@@ -489,7 +489,7 @@ section {
 
 /* Estilos generales del scrollbar */
 ::-webkit-scrollbar {
-    width: 4px; /* Ancho del scrollbar */
+    width: 12px; /* Ancho del scrollbar */
     background-color: #f1f1f1; /* Color de fondo */
 }
 
@@ -500,7 +500,7 @@ section {
 
 /* Thumb (el deslizador del scrollbar) */
 ::-webkit-scrollbar-thumb {
-    background-color: #888; /* Color del thumb */
+    background-color: #b6b2b2; /* Color del thumb */
     border-radius: 4px; /* Borde redondeado */
 }
 
@@ -511,7 +511,7 @@ section {
 
 /* Cambiar el cursor al pasar sobre el thumb */
 ::-webkit-scrollbar-thumb:active {
-    background-color: #000; /* Color al hacer clic */
+    background-color: #464343; /* Color al hacer clic */
 }
 
 .parte-dinamica {
