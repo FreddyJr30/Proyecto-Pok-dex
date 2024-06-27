@@ -43,31 +43,78 @@ document.addEventListener('DOMContentLoaded', () => {
 
             this.cuerpoDetalles.innerHTML = `
                 <div class="cuerpo-detalles">
-                    <img src="${pokemonData.sprites.other['official-artwork'].front_default}" alt="${pokemonData.name}">
-                    <div class="tipos">
-                        ${tipos.map(tipo => `
-                            <button class="boton-tipo ${tipo}" data-tipo="${tipo}">${tipo}</button>
-                        `).join('')}
+                    <div class="parte-fija">
+                        <img src="${pokemonData.sprites.other['official-artwork'].front_default}" alt="${pokemonData.name}">
+                        <div class="tipos">
+                            ${tipos.map(tipo => `
+                                <button class="boton-tipo ${tipo}" data-tipo="${tipo}">${tipo}</button>
+                            `).join('')}
+                        </div>
+                         <button class="agregar-equipo-btn" data-pokemon-id="${pokemonData.id}">Agregar a Equipo</button>
+                        <h1>${pokemonData.name}</h1>
+                        <div class="info">
+                            <p>Altura: ${pokemonData.height / 10} m</p>
+                            <p>Peso: ${pokemonData.weight / 10} kg</p>
+                        </div>
+
+                        <nav class="nav-items">
+                            <a href="#estadisticas">Estadísticas</a>
+                            <a href="#moves">Moves</a>
+                        </nav>
                     </div>
-                    <button class="agregar-equipo-btn" data-pokemon-id="${pokemonData.id}">Agregar a Equipo</button>
-                    <h1>${pokemonData.name}</h1>
-                    <div class="info">
-                        <p>Altura: ${pokemonData.height / 10} m</p>
-                        <p>Peso: ${pokemonData.weight / 10} kg</p>
-                    </div>
-                    <div class="estadisticas">
-                        ${pokemonData.stats.map(stat => `
-                            <p>${stat.stat.name}: ${stat.base_stat}</p>
-                            <div class="contenedor-barra">
-                                <div class="barra ${stat.stat.name.toLowerCase()}" data-porcentaje="${stat.base_stat * 0.8}"></div>
-                            </div>
-                        `).join('')}
+                    
+                    <div class="parte-dinamica">
+                        <!-- El contenido dinámico se actualizará aquí -->
                     </div>
                 </div>
             `;
             this.detallesPokemon.style.display = 'flex';
 
+            // Mostrar inicialmente la sección de estadísticas
+            this.mostrarSeccion('estadisticas', pokemonData);
+
+            // Manejar clics en los enlaces de navegación
+            const linksNavegacion = document.querySelectorAll('.nav-items a');
+            linksNavegacion.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const seccionId = link.getAttribute('href').substring(1);
+                    this.mostrarSeccion(seccionId, pokemonData);
+                });
+            });
+
             this.animarBarras();
+        }
+
+        mostrarSeccion(seccionId, pokemonData) {
+            const parteDinamica = document.querySelector('.parte-dinamica');
+            
+            if (seccionId === 'estadisticas') {
+                parteDinamica.innerHTML = `
+                    <div class="seccion-detalles" id="estadisticas">
+                        <div class="estadisticas">
+                            ${pokemonData.stats.map(stat => `
+                                <p>${stat.stat.name}: ${stat.base_stat}</p>
+                                <div class="contenedor-barra">
+                                    <div class="barra ${stat.stat.name.toLowerCase()}" data-porcentaje="${stat.base_stat * 0.8}"></div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                this.animarBarras(); // Animar las barras de estadísticas
+            } else if (seccionId === 'moves') {
+                parteDinamica.innerHTML = `
+                    <div class="seccion-detalles" id="moves">
+                        <h3>Moves</h3>
+                        <ul>
+                            ${pokemonData.moves.map(move => `
+                                <li>${move.move.name}</li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
         }
 
         cerrarModalDetalles() {
@@ -249,4 +296,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const pokedex = new Pokedex();
 });
-
