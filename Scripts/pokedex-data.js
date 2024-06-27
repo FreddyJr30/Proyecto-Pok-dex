@@ -234,6 +234,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     const pokemonId = event.target.getAttribute('data-pokemon-id');
                     this.modalOpciones.classList.add('active');
                     this.modalOpciones.setAttribute('data-pokemon-id', pokemonId);
+                } else if (event.target.classList.contains('eliminar-pokemon-btn')) {
+                    const pokemonId = event.target.getAttribute('data-pokemon-id
+                    this.eliminarPokemonDelEquipo(pokemonId, `equipo${equipoId}`);
+                }                                            
                 }
             });
 
