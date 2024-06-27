@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon</title>
     <link rel="stylesheet" href="./Styles/styles_general_cartas.css">
 </head>
+
 <body>
     <header>
         <div class="titulo">
@@ -13,29 +15,49 @@
         </div>
         <nav class="barra-nav-principal" id="barra-navegacion">
             <ul>
-                <li><a href="principal.html" data-seccion="pokedex"><img src="./images/pokedex.png" alt="pokedex">  Pokédex</a></li>
-                <li><a href="#seccion-acompanantes" data-seccion="acompanantes"><img src="./images/pikachu.png" alt="pikachu">  Mis Acompañantes</a></li>
-                <li><a href="#equipos" data-seccion="entrenadores"><img src="./images/entrenador.png" alt="entrenadores">  Entrenadores</a></li>
-                <li><a href="https://pokeapi.co/docs/v2" target="_blank" data-seccion="entrenadores"><img src="./images/pokeapi.png" alt="pokeapi">  API</a></li>
-                <li><a href="https://github.com/FreddyJr30/Proyecto-Pok-dex"  target="_blank" data-seccion="pokedex"><img src="./images/github.png" alt="github">  Info</a></li>
+                <li><a href="principal.html" data-seccion="pokedex"><img src="./images/pokedex.png" alt="pokedex">
+                        Pokédex</a></li>
+                <li><a href="#seccion-acompanantes" data-seccion="acompanantes"><img src="./images/pikachu.png"
+                            alt="pikachu"> Mis Acompañantes</a></li>
+                <li><a href="#equipos" data-seccion="entrenadores"><img src="./images/entrenador.png"
+                            alt="entrenadores"> Entrenadores</a></li>
+                <li><a href="https://pokeapi.co/docs/v2" target="_blank" data-seccion="entrenadores"><img
+                            src="./images/pokeapi.png" alt="pokeapi"> API</a></li>
+                <li><a href="https://github.com/FreddyJr30/Proyecto-Pok-dex" target="_blank" data-seccion="pokedex"><img
+                            src="./images/github.png" alt="github"> Info</a></li>
             </ul>
         </nav>
     </header>
+    <div class="buscador">
+        <input type="text" id="buscador-nombre" placeholder="Buscar Pokémon por nombre...">
+        <select id="buscador-tipo">
+            <option value="">Filtrar por tipo</option>
+            <option value="normal">Normal</option>
+            <option value="fire">Fire</option>
+            <option value="water">Water</option>
+            <option value="electric">Electric</option>
+            <option value="grass">Grass</option>
+            <option value="ice">Ice</option>
+            <option value="fighting">Fighting</option>
+            <option value="poison">Poison</option>
+            <option value="ground">Ground</option>
+            <option value="flying">Flying</option>
+            <option value="psychic">Psychic</option>
+            <option value="bug">Bug</option>
+            <option value="rock">Rock</option>
+            <option value="ghost">Ghost</option>
+            <option value="dragon">Dragon</option>
+            <option value="dark">Dark</option>
+            <option value="steel">Steel</option>
+            <option value="fairy">Fairy</option>
+        </select>
+        <button id="mostrar-todos">Mostrar Todos</button>
+    </div>
+    
     <section id="contenedor-pokemon" class="contenedor-pokemon">
-        <div class="buscador">
-            <input type="text" id="buscador-nombre" placeholder="Buscar Pokémon por nombre...">
-            <select id="buscador-tipo">
-                <option value="">Filtrar por tipo</option>
-                <option value="grass">Grass</option>
-                <option value="fire">Fire</option>
-                <option value="water">Water</option>
-                <!-- Añadir más opciones de tipo según sea necesario -->
-            </select>
-            <button id="mostrar-todos">Mostrar Todos</button>
-        </div>
         <!-- Tarjetas de Pokémon se añadirán aquí -->
     </section>
-    
+
     <section id="seccion-acompanantes">
         <!-- Contenido para la sección Mis Acompañantes -->
         <section class="equipos">
@@ -100,4 +122,5 @@
     <script src="./Scripts/pokedex-data.js"></script>
     <script src="./Scripts/audio.js"></script>
 </body>
+
 </html>
