@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
             this.init();
         }
 
+/******************************************************************************************************************/
+
         async obtenerPokemones(offset = 0, limit = 150) {
             try {
                 const response = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`);
@@ -76,11 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
             this.animarBarras();
         }
 
-/******************************************************************************************************************/
-
         cerrarModalDetalles() {
             this.detallesPokemon.style.display = 'none';
         }
+
+/******************************************************************************************************************/
 
         async crearTarjetasPokemon() {
             const pokemonesData = await this.obtenerPokemones();
@@ -320,8 +322,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.mostrarEquipos();
             }
         }
-
-/******************************************************************************************************************/
 
         guardarEquipos() {
             localStorage.setItem('equipos', JSON.stringify(this.equipos));
