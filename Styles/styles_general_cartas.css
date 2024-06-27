@@ -1,4 +1,9 @@
 /******************************************************************************************************************/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 /* Estilos generales */
 body {
@@ -23,7 +28,6 @@ header {
     width: 100%;
     z-index: 800;
     box-sizing: border-box;
-    
 }
 
 .titulo {
