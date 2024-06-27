@@ -209,6 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('El equipo ya tiene 6 Pokémon.');
             }
         }
+
         eliminarPokemonDelEquipo(pokemonId, equipoId) {
             const equipo = this.equipos[equipoId];
             const pokemonIndex = equipo.findIndex(pokemon => pokemon.id == pokemonId);
@@ -282,10 +283,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     this.modalOpciones.classList.add('active');
                     this.modalOpciones.setAttribute('data-pokemon-id', pokemonId);
                 } else if (event.target.classList.contains('eliminar-pokemon-btn')) {
-                    const pokemonId = event.target.getAttribute('data-pokemon-id
+                    const pokemonId = event.target.getAttribute('data-pokemon-id');
+                    const equipoId = event.target.getAttribute('data-equipo-id');
                     this.eliminarPokemonDelEquipo(pokemonId, `equipo${equipoId}`);
                 }                                            
-                }
             });
 
             document.querySelectorAll('.opciones-equipo button').forEach(button => {
@@ -299,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
 
-            this.animarBarras();
+            this.animarBarras(); // Llamar a la función correcta
             this.animarBarraNavegacion();
             this.scrollSuave();
         }
@@ -307,23 +308,13 @@ document.addEventListener('DOMContentLoaded', () => {
         animarBarras() {
             const barras = document.querySelectorAll('.barra');
             barras.forEach(barra => {
-                const porcentaje = barra.getAttribute('data-porcentaje');
-                barra.style.width = `${porcentaje}%`;
-            });
-        }
-
-        // Función para animar el llenado de las barras de estadísticas
-        animarBarras() {
-            const barras = document.querySelectorAll('.barra');
-
-            barras.forEach(barra => {
                 barra.style.width = '0%'; // Reiniciar el ancho a 0 antes de animar
                 const objetivo = parseInt(barra.dataset.porcentaje); // Obtenemos el porcentaje objetivo de los datos del atributo
                 this.animarBarraEstadisticas(barra, objetivo);
             });
         }
 
-        // Función para animar una sola barra de estadísticas hasta el porcentaje objetivo
+        // Función para animar el llenado de las barras de estadísticas
         animarBarraEstadisticas(elemento, porcentaje) {
             let anchoInicial = 0; // Ancho inicial de la barra
             let incremento = 1; // Incremento gradual para la animación
