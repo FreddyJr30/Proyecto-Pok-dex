@@ -486,18 +486,24 @@ section {
     margin-bottom: 10px;
 }
 
-.opciones-equipo button {
-    margin: 5px;
+.modal-opciones button {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
     padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #ffcc00; /* Color de fondo inspirado en Pikachu */
     border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
+    border-radius: 10px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.opciones-equipo button:hover {
-    background-color: #0056b3;
+.modal-opciones button:hover {
+    background-color: #ff9900; /* Color de fondo más oscuro al hacer hover */
+    transform: scale(1.1); /* Agrandar el botón al hacer hover */
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.8); /* Agregar un brillo al hacer hover */
 }
 
 /******************************************************************************************************************/
