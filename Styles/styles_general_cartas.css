@@ -107,14 +107,14 @@ section {
     justify-content: center;
     gap: 20px;
     margin-top: 0px; /* Ajuste para evitar superposición con el encabezado */
-    background-image: url('./images/fondo-pokedex.jpg'); /* Imagen de fondo personalizada */
+    background-image: url('/images/fondo-pokedex.jpg'); /* Imagen de fondo personalizada */
 }
 /*****Para mostrar los equipos****/
 #seccion-acompanantes {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url('./images/fondo-pokedex.jpg');
+    background-image: url('/images/fondo-pokedex.jpg');
     background-size: cover;
     background-position: center;
     padding: 20px;
