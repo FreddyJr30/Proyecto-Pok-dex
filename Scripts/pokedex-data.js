@@ -131,8 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
             listaPokemones.forEach(pokemon => this.crearTarjetaPokemon(pokemon));
         }
 
-/******************************************************************************************************************/
-
         buscarPorNombre() {
             const nombre = this.buscadorNombre.value.toLowerCase();
             const pokemonesFiltrados = this.pokemones.filter(pokemon =>
@@ -140,8 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
             );
             this.mostrarPokemones(pokemonesFiltrados);
         }
-
-/******************************************************************************************************************/
 
         buscarPorTipo() {
             const tipo = this.buscadorTipo.value;
@@ -269,6 +265,8 @@ document.addEventListener('DOMContentLoaded', () => {
             tarjeta.addEventListener('click', () => this.mostrarDetallesPokemon(pokemon));
             contenedorEquipo.appendChild(tarjeta);
         }
+
+/******************************************************************************************************************/
 
         obtenerColorTipo(tipo) {
             switch (tipo) {
