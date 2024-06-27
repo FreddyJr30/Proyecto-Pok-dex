@@ -19,7 +19,7 @@ header {
     background-color: #ffcc01;
     color: #fff;
     width: 100%;
-    z-index: 1000;
+    z-index: 800;
     box-sizing: border-box;
     
 }
@@ -218,6 +218,26 @@ section {
     transition: opacity 0.3s;
 }
 
+/**** Boton para agregar equipo **/
+.agregar-equipo-btn {
+    background-color: #4caf50; /* Color de fondo inicial */
+    color: white; /* Color del texto */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.agregar-equipo-btn:hover {
+    background-color: #388e3c; /* Color de fondo al pasar el mouse */
+    transform: scale(1.1); /* Efecto de escala */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra al pasar el mouse */
+}
+
+.agregar-equipo-btn:active {
+    transform: scale(0.9); /* Efecto de escala al hacer clic */
+}
+
 .tarjeta:hover .contenido-tarjeta {
     opacity: 1;
 }
@@ -248,7 +268,7 @@ section {
 .detalles-pokemon {
     display: none;
     position: fixed;
-    z-index: 1001;
+    z-index: 900; /* Asegúrate de que el z-index del modal detalles-pokemon sea menor */
     left: 0;
     top: 0;
     width: 100%;
@@ -417,6 +437,7 @@ section {
     display: none; /* Ocultar el modal inicialmente */
     justify-content: center;
     align-items: center;
+    z-index: 1000; /* Ajusta el z-index según sea necesario para asegurar que esté por encima */
 }
 
 .modal-opciones.active {
@@ -533,4 +554,60 @@ section {
 /* Cambio de color al pasar el cursor */
 .nav-items a:hover {
     color: #ff9900; /* Color diferente al pasar el cursor */
+}
+
+/**** Disenio Tarjetas ****/
+.pokemon-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 200px;
+    margin: 10px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pokemon-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pokemon-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.pokemon-info {
+    margin-top: 10px;
+}
+
+.pokemon-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.pokemon-description {
+    font-size: 0.9em;
+    color: #666;
+    margin: 5px 0;
+}
+
+.remove {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+.remove:hover {
+    background-color: #e60000;
 }
