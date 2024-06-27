@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (seccionId === 'estadisticas') {
                 parteDinamica.innerHTML = `
                     <div class="seccion-detalles" id="estadisticas">
+                    <h3>Estadisticas</h3>
                         <div class="estadisticas">
                             ${pokemonData.stats.map(stat => `
                                 <p>${stat.stat.name}: ${stat.base_stat}</p>
