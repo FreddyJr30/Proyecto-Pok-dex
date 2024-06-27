@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         ${pokemonData.stats.map(stat => `
                             <p>${stat.stat.name}: ${stat.base_stat}</p>
                             <div class="contenedor-barra">
-                                <div class="barra ${stat.stat.name.toLowerCase()}" data-porcentaje="${stat.base_stat * 0.8}"></div>
+                                <div class="barra ${stat.stat.name.toLowerCase()}" data-porcentaje="${stat.base_stat * 0.5}"></div>
                             </div>
                         `).join('')}
                     </div>
