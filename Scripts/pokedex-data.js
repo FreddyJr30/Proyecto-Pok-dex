@@ -162,6 +162,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('El equipo ya tiene 6 Pokémon.');
             }
         }
+        eliminarPokemonDelEquipo(pokemonId, equipoId) {
+            const equipo = this.equipos[equipoId];
+            const pokemonIndex = equipo.findIndex(pokemon => pokemon.id == pokemonId);
+
+            if (pokemonIndex !== -1) {
+                equipo.splice(pokemonIndex, 1);
+                this.guardarEquipos();
+                this.mostrarEquipos();
+            }
+        }
 
         mostrarEquipos() {
             for (let i = 1; i <= 6; i++) {
