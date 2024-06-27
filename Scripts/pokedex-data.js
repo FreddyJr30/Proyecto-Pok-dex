@@ -38,19 +38,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+/******************************************************************************************************************/
+
         mostrarDetallesPokemon(pokemonData) {
             const tipos = pokemonData.types.map(typeInfo => typeInfo.type.name);
-
+            const tipoPrincipal = tipos[0];
+            const colorTipo = this.obtenerColorTipo(tipoPrincipal);
+        
             this.cuerpoDetalles.innerHTML = `
                 <div class="cuerpo-detalles">
-                    <img src="${pokemonData.sprites.other['official-artwork'].front_default}" alt="${pokemonData.name}">
+                    <div class="imagen-contenedor" style="background-color: ${colorTipo};">
+                        <img src="${pokemonData.sprites.other['official-artwork'].front_default}" alt="${pokemonData.name}">
+                    </div>
                     <div class="tipos">
                         ${tipos.map(tipo => `
                             <button class="boton-tipo ${tipo}" data-tipo="${tipo}">${tipo}</button>
                         `).join('')}
                     </div>
                     <button class="agregar-equipo-btn" data-pokemon-id="${pokemonData.id}">Agregar a Equipo</button>
-                    <h1>${pokemonData.name}</h1>
+                    <h1 class="nombre-pokemon">${pokemonData.name}</h1>
                     <div class="info">
                         <p>Altura: ${pokemonData.height / 10} m</p>
                         <p>Peso: ${pokemonData.weight / 10} kg</p>
@@ -66,9 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
             this.detallesPokemon.style.display = 'flex';
-
+        
             this.animarBarras();
         }
+
+/******************************************************************************************************************/
 
         cerrarModalDetalles() {
             this.detallesPokemon.style.display = 'none';
@@ -93,6 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+/******************************************************************************************************************/
+
         crearTarjetaPokemon(pokemon) {
             const tarjeta = document.createElement('div');
             tarjeta.classList.add('tarjeta');
@@ -107,6 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
             this.contenedorPokemon.appendChild(tarjeta);
         }
 
+/******************************************************************************************************************/
+
         filtrarPorTipo(tipo) {
             const pokemonesFiltrados = this.pokemones.filter(pokemon =>
                 pokemon.types.some(typeInfo => typeInfo.type.name === tipo)
@@ -119,6 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
             listaPokemones.forEach(pokemon => this.crearTarjetaPokemon(pokemon));
         }
 
+/******************************************************************************************************************/
+
         buscarPorNombre() {
             const nombre = this.buscadorNombre.value.toLowerCase();
             const pokemonesFiltrados = this.pokemones.filter(pokemon =>
@@ -126,6 +140,8 @@ document.addEventListener('DOMContentLoaded', () => {
             );
             this.mostrarPokemones(pokemonesFiltrados);
         }
+
+/******************************************************************************************************************/
 
         buscarPorTipo() {
             const tipo = this.buscadorTipo.value;
@@ -136,6 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+/******************************************************************************************************************/
+
         pokemonYaEnEquipo(pokemonId) {
             for (let equipo in this.equipos) {
                 if (this.equipos[equipo].some(pokemon => pokemon.id == pokemonId)) {
@@ -144,6 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             return false;
         }
+
+/******************************************************************************************************************/
 
         agregarPokemonAlEquipo(pokemonId, equipoId) {
             const equipo = this.equipos[`equipo${equipoId}`];
@@ -163,26 +183,68 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+/******************************************************************************************************************/
+        
+        mostrarEquipos() {
+            for (let i = 1; i <= 6; i++) {
+        const contenedorEquipo = document.getElementById(`contenedor-equipo${i}`);
+        contenedorEquipo.innerHTML = ''; // Limpiar el contenido antes de mostrar
+
+        if (this.equipos[`equipo${i}`]) {
+            this.equipos[`equipo${i}`].forEach(pokemon => {
+                if (pokemon && pokemon.sprites && pokemon.sprites.front_default) {
+                    const divPokemon = document.createElement('div');
+                    divPokemon.classList.add('pokemon-equipo');
+                    divPokemon.style.backgroundColor = this.obtenerColorTipo(pokemon.types[0].type.name); // Asignar color según el tipo
+                    divPokemon.innerHTML = `
+                        <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+                        <p>${pokemon.name}</p>
+                        <button class="eliminar-pokemon-btn" data-pokemon-id="${pokemon.id}" data-equipo-id="${i}">&times;</button>
+                    `;
+                    contenedorEquipo.appendChild(divPokemon);
+                } else {
+                    console.error(`Error: Pokémon en equipo ${i} no tiene datos de sprites disponibles.`);
+                }
+            });
+        }
+    }
+
+    // Agregar evento para eliminar Pokémon
+    document.querySelectorAll('.eliminar-pokemon-btn').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const pokemonId = event.target.getAttribute('data-pokemon-id');
+            const equipoId = event.target.getAttribute('data-equipo-id');
+            this.eliminarPokemonDelEquipo(pokemonId, equipoId);
+        });
+    });
+}
+
+/******************************************************************************************************************/
+        
+    //Funcion para Eliminar pokemons
+    eliminarPokemonDelEquipo(pokemonId, equipoId, event) {
+        const equipo = this.equipos[`equipo${equipoId}`];
+        const index = equipo.findIndex(pokemon => pokemon.id == pokemonId);
+        if (index !== -1) {
+            equipo.splice(index, 1);
+            this.guardarEquipos();
+            this.mostrarEquipos(); // Actualiza la visualización de los equipos
+        }
+        // Evitar que se active la tarjeta de detalles al eliminar
+        event.stopPropagation();
+    }
+
+/******************************************************************************************************************/
+
         mostrarEquipos() {
             for (let i = 1; i <= 6; i++) {
                 const contenedorEquipo = document.getElementById(`contenedor-equipo${i}`);
                 contenedorEquipo.innerHTML = '';
-        
+
                 if (this.equipos[`equipo${i}`]) {
                     this.equipos[`equipo${i}`].forEach(pokemon => {
                         if (pokemon && pokemon.sprites && pokemon.sprites.front_default) {
-                            const divPokemon = document.createElement('div');
-                            divPokemon.classList.add('pokemon-card');
-                            divPokemon.innerHTML = `
-                                <div class="pokemon-card-content">
-                                    <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" class="pokemon-image">
-                                    <div class="pokemon-info">
-                                        <h4 class="pokemon-name">${pokemon.name}</h4>
-                                    </div>
-                                    <button class="remove" data-id="${pokemon.id}">X</button>
-                                </div>
-                            `;
-                            contenedorEquipo.appendChild(divPokemon);
+                            this.crearTarjetaEquipo(pokemon, i);
                         } else {
                             console.error(`Error: Pokémon en equipo ${i} no tiene datos de sprites disponibles.`);
                         }
@@ -190,7 +252,68 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         }
-        
+
+/******************************************************************************************************************/
+
+        crearTarjetaEquipo(pokemon, equipoId) {
+            const contenedorEquipo = document.getElementById(`contenedor-equipo${equipoId}`);
+
+            const tarjeta = document.createElement('div');
+            tarjeta.classList.add('pokemon-equipo');
+            tarjeta.style.backgroundColor = this.obtenerColorTipo(pokemon.types[0].type.name); // Color según el tipo del Pokémon
+            tarjeta.innerHTML = `
+                <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+                <p>${pokemon.name}</p>
+                <button class="eliminar-pokemon-btn" data-pokemon-id="${pokemon.id}" data-equipo-id="${equipoId}">X</button>
+            `;
+            tarjeta.addEventListener('click', () => this.mostrarDetallesPokemon(pokemon));
+            contenedorEquipo.appendChild(tarjeta);
+        }
+
+        obtenerColorTipo(tipo) {
+            switch (tipo) {
+                case 'grass':
+                    return '#78C850'; // Verde
+                case 'fire':
+                    return '#F08030'; // Naranja
+                case 'water':
+                    return '#6890F0'; // Azul
+                case 'bug':
+                    return '#A8B820'; // Verde claro
+                case 'normal':
+                    return '#CECEDB'; // Gris
+                case 'poison':
+                    return '#A040A0'; // Púrpura
+                case 'electric':
+                    return '#F8D030'; // Amarillo
+                case 'ground':
+                    return '#E0C068'; // Marrón claro
+                case 'fairy':
+                    return '#EE99AC'; // Rosa claro
+                case 'fighting':
+                    return '#C03028'; // Rojo oscuro
+                case 'psychic':
+                    return '#F85888'; // Rosa
+                case 'rock':
+                    return '#B8A038'; // Marrón
+                case 'ghost':
+                    return '#705898'; // Púrpura oscuro
+                case 'ice':
+                    return '#98D8D8'; // Azul claro
+                case 'dragon':
+                    return '#7038F8'; // Púrpura
+                case 'dark':
+                    return '#705848'; // Marrón oscuro
+                case 'steel':
+                    return '#8F8F92'; // Gris claro
+                case 'flying':
+                    return '#A890F0'; // Lila
+                default:
+                    return '#8F8F92'; // Gris por defecto
+            }
+        }
+
+/******************************************************************************************************************/
 
         cargarEquipos() {
             const equiposGuardados = localStorage.getItem('equipos');
@@ -200,9 +323,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+/******************************************************************************************************************/
+
         guardarEquipos() {
             localStorage.setItem('equipos', JSON.stringify(this.equipos));
         }
+
+/******************************************************************************************************************/
 
         init() {
             this.crearTarjetasPokemon();
@@ -229,6 +356,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     const pokemonId = event.target.getAttribute('data-pokemon-id');
                     this.modalOpciones.classList.add('active');
                     this.modalOpciones.setAttribute('data-pokemon-id', pokemonId);
+                } else if (event.target.classList.contains('eliminar-pokemon-btn')) {
+                    const pokemonId = event.target.getAttribute('data-pokemon-id');
+                    const equipoId = event.target.getAttribute('data-equipo-id');
+                    
+                    this.eliminarPokemonDelEquipo(pokemonId, equipoId);
                 }
             });
 
@@ -248,6 +380,8 @@ document.addEventListener('DOMContentLoaded', () => {
             this.scrollSuave();
         }
 
+/******************************************************************************************************************/
+
         animarBarras() {
             const barras = document.querySelectorAll('.barra');
             barras.forEach(barra => {
@@ -255,6 +389,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 barra.style.width = `${porcentaje}%`;
             });
         }
+
+/******************************************************************************************************************/
 
         // Función para animar el llenado de las barras de estadísticas
         animarBarras() {
@@ -266,6 +402,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.animarBarraEstadisticas(barra, objetivo);
             });
         }
+
+/******************************************************************************************************************/
 
         // Función para animar una sola barra de estadísticas hasta el porcentaje objetivo
         animarBarraEstadisticas(elemento, porcentaje) {
@@ -289,6 +427,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }, 10);
         }
+
+/******************************************************************************************************************/
 
         // Función para manejar el desplazamiento suave hacia arriba
         scrollSuave() {
@@ -315,6 +455,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+/******************************************************************************************************************/
+
         // Función para animar la barra de navegación
         animarBarraNavegacion() {
             const barraNavegacion = document.getElementById('barra-navegacion');
@@ -323,7 +465,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+/******************************************************************************************************************/
+
     const pokedex = new Pokedex();
 });
-
-
