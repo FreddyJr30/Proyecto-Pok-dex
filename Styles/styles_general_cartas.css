@@ -291,7 +291,7 @@ section {
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 300px; /* Reducir el max-width para hacer el modal más pequeño */
+    max-width: 350px; /* Reducir el max-width para hacer el modal más pequeño */
     border-radius: 20px;
     position: fixed; /* Cambiar a fixed para centrarlo en la pantalla */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -303,6 +303,7 @@ section {
     transform: translate(-50%, -50%); /* Centrar el modal */
     overflow-y: auto; /* Añadir desplazamiento vertical */
     max-height: 80vh; /* Limitar la altura máxima para evitar que se salga de la pantalla */
+    overflow-x: hidden; 
 }
 
 @media (max-width: 768px) {
